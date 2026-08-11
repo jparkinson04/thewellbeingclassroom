@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Wellbeing Classroom — Mental Health &amp; Wellbeing Support for Schools</title>
+<meta name="description" content="Practical, evidence-informed wellbeing workshops, DBT skills groups, INSET training and parent sessions for schools across Yorkshire — from BACP Registered Counsellor Clare Blackmore.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Caveat:wght@600&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   THE WELLBEING CLASSROOM — BRAND TOKENS
+   Change the site's entire colour scheme by editing this file.
+   Default: "Rose & Mint" (pink + green — closest to the
+   sage-green-and-blush direction Clare mentioned, kept poppy).
+   Alternate palettes are at the bottom — copy one over :root
+   to switch.
+   ============================================================ */
+
+:root{
+  /* Core palette */
+  --primary:#D94F8E;        /* buttons, panels, headings on colour */
+  --primary-dark:#B93A75;   /* hover/pressed */
+  --highlight:#A9E5B4;      /* highlighter swipes, badges, sun buttons */
+  --accent:#2F9461;         /* handwriting, stickers, doodles */
+  --ink:#2E1B26;            /* text + borders */
+
+  /* Notepad surfaces */
+  --paper:#FCFBF4;          /* page background */
+  --rule:#F5DCE8;           /* ruled notebook lines */
+  --margin:#F3A8A0;         /* red margin line */
+  --note:#FFF3B0;           /* sticky notes */
+
+  /* Tints (derived — keep in the primary/highlight families) */
+  --tint-primary:#FBD7E6;   /* light primary backgrounds */
+  --tint-highlight:#D9F0DD; /* light highlight backgrounds */
+  --tint-neutral:#FAF0F5;   /* pills, subtle fills */
+  --text-on-primary:#FBD9E8;/* body text on primary panels */
+  --body:#4a3341;           /* body copy */
+  --body-soft:#4d3644;      /* secondary copy */
+  --faded:#A5879A;          /* dates, hints */
+  --footer-text:#D9BCCB;
+
+  /* Hero / CTA gradient stops */
+  --glow-a:rgba(169,229,180,.6);   /* highlight glow */
+  --glow-b:rgba(217,79,142,.13);   /* primary glow */
+  --tape:rgba(47,148,97,.35);      /* washi tape on cards */
+
+  /* Type */
+  --font-display:'Bricolage Grotesque',sans-serif;
+  --font-body:'Nunito Sans',sans-serif;
+  --font-hand:'Caveat',cursive;
+}
+
+/* ------------------------------------------------------------
+   ALTERNATE PALETTES (approved mockup colourways)
+   To use one, replace the matching variables in :root above.
+   ------------------------------------------------------------
+
+   RASPBERRY & CUSTARD (pink + yellow)
+   --primary:#D6336C; --primary-dark:#B02458;
+   --highlight:#FFC93C; --accent:#FF6B57; --ink:#33202A;
+   --rule:#F5DDE6; --tint-primary:#FBD9E4; --tint-highlight:#FFD9D2;
+   --tint-neutral:#FAF0F3; --text-on-primary:#FBDCE7;
+   --body:#4a3340; --body-soft:#4d3644; --faded:#A58794;
+   --footer-text:#D9BCC9;
+   --glow-a:rgba(255,201,60,.55); --glow-b:rgba(214,51,108,.12);
+   --tape:rgba(255,107,87,.4);
+
+   ORCHARD (green + apricot)
+   --primary:#2E7D4F; --primary-dark:#23623E;
+   --highlight:#FFBE76; --accent:#F4633A; --ink:#182B1F;
+   --rule:#DCE9DE; --tint-primary:#D6EDDD; --tint-highlight:#FFE3CB;
+   --tint-neutral:#EFF6F0; --text-on-primary:#D9EFDF;
+   --body:#35443a; --body-soft:#3a4a40; --faded:#7f9686;
+   --footer-text:#B7C6BB;
+   --glow-a:rgba(255,190,118,.55); --glow-b:rgba(46,125,79,.14);
+   --tape:rgba(244,99,58,.35);
+
+   MARIGOLD (orange + peach + olive)
+   --primary:#DE5F1D; --primary-dark:#B84F14;
+   --highlight:#FFCE9E; --accent:#6F8F3F; --ink:#2E2418;
+   --rule:#EFE2CF; --tint-primary:#FFE2C7; --tint-highlight:#E7EFD8;
+   --tint-neutral:#FAF2E8; --text-on-primary:#FFE4CB;
+   --body:#4a3d2e; --body-soft:#4d4032; --faded:#A89376;
+   --footer-text:#D4C6B0;
+   --glow-a:rgba(255,206,158,.55); --glow-b:rgba(222,95,29,.12);
+   --tape:rgba(111,143,63,.35);
+------------------------------------------------------------ */
+
+/* ============================================================
+   THE WELLBEING CLASSROOM — MAIN STYLES
+   Notepad design system: ruled paper, margin line, chunky
+   bordered cards with offset shadows, handwritten annotations.
+   Colours come from tokens.css — never hard-code hex here.
+   ============================================================ */
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-body);color:var(--ink);line-height:1.65;font-size:17px;
+  background:
+    repeating-linear-gradient(to bottom, transparent 0 31px, var(--rule) 31px 32px),
+    var(--paper);
+}
+body::before{content:"";position:fixed;top:0;bottom:0;left:64px;width:2px;background:var(--margin);z-index:0;opacity:.85}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px 0 96px;position:relative;z-index:1}
+h1,h2,h3{font-family:var(--font-display);color:var(--ink);line-height:1.06;letter-spacing:-.015em}
+.hand{font-family:var(--font-hand);color:var(--accent);font-size:1.35em;line-height:1.2}
+.hl{background:linear-gradient(transparent 50%, var(--highlight) 50%, var(--highlight) 94%, transparent 94%);padding:0 3px}
+
+/* Buttons */
+.btn{display:inline-block;background:var(--primary);color:#fff;padding:14px 28px;border-radius:14px;text-decoration:none;font-weight:800;font-size:15.5px;border:2.5px solid var(--ink);box-shadow:4px 4px 0 var(--ink);transition:transform .12s, box-shadow .12s}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+.btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.btn.sun{background:var(--highlight);color:var(--ink)}
+.btn.plain{background:#fff;color:var(--ink)}
+.eyebrow{display:inline-block;background:var(--highlight);border:2px solid var(--ink);border-radius:999px;padding:6px 16px;font-weight:800;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:18px;transform:rotate(-1.5deg);color:var(--ink)}
+
+/* Nav */
+nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb, var(--paper) 94%, transparent);backdrop-filter:blur(8px);border-bottom:2.5px solid var(--ink)}
+.nav-inner{max-width:1120px;margin:0 auto;padding:15px 28px 15px 96px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:800;font-size:22px;text-decoration:none;color:var(--ink);line-height:1}
+.logo svg.mark{flex:none;width:36px;height:36px}
+.logo small{display:block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--primary)}
+.nav-links{display:flex;gap:24px;align-items:center;font-size:15px;font-weight:700}
+.nav-links a{text-decoration:none;color:var(--ink)}
+.nav-links a:hover{color:var(--primary)}
+
+/* Hero */
+.hero{
+  padding:90px 0 80px;position:relative;
+  background:
+    radial-gradient(circle at 86% 10%, var(--glow-a), transparent 36%),
+    radial-gradient(circle at 4% 92%, var(--glow-b), transparent 42%);
+}
+.hero-grid{display:grid;grid-template-columns:1.18fr .82fr;gap:56px;align-items:center}
+.hero .date{font-family:var(--font-hand);color:var(--faded);font-size:23px;margin-bottom:8px}
+.hero h1{font-size:clamp(38px,5.2vw,62px);font-weight:800;margin-bottom:22px}
+.hero p.lede{font-size:19px;max-width:54ch;margin-bottom:30px;color:var(--body)}
+.hero-ctas{display:flex;gap:15px;flex-wrap:wrap;margin-bottom:28px}
+.ticks{display:flex;gap:18px;flex-wrap:wrap;font-size:14.5px;font-weight:700}
+.ticks span::before{content:"✓";display:inline-flex;width:20px;height:20px;border-radius:50%;background:var(--primary);color:#fff;align-items:center;justify-content:center;font-size:11px;margin-right:8px;vertical-align:middle}
+
+/* Floating course cards */
+.stack{position:relative;min-height:430px}
+.card-float{position:absolute;background:#fff;border:2.5px solid var(--ink);border-radius:18px;box-shadow:6px 6px 0 var(--ink);padding:24px;width:80%}
+.card-float::before{content:"";position:absolute;top:-11px;left:50%;transform:translateX(-50%) rotate(-2deg);width:78px;height:20px;background:var(--tape)}
+.card-float h3{font-size:19px;font-weight:800;margin-bottom:6px}
+.card-float p{font-size:14px;color:var(--body-soft)}
+.card-float .pill{display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;background:var(--tint-neutral);border:2px solid var(--ink);border-radius:999px;padding:3px 10px;margin-bottom:10px}
+.cf1{top:0;left:0;transform:rotate(-2.4deg);background:var(--highlight)}
+.cf1 .pill{background:#fff}
+.cf2{top:136px;right:0;transform:rotate(1.8deg)}
+.cf3{top:278px;left:20px;transform:rotate(-1.2deg);background:var(--primary)}
+.cf3 h3{color:#fff}
+.cf3 p{color:var(--text-on-primary)}
+.cf3 .pill{background:var(--primary-dark);color:#fff;border-color:#fff}
+.cf3::before{background:var(--glow-a)}
+
+/* Register strip */
+.register{border-top:2.5px solid var(--ink);border-bottom:2.5px solid var(--ink);background:var(--ink);color:#fff;padding:17px 0;position:relative;z-index:1}
+.register .wrap{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;font-family:var(--font-display);font-weight:600;font-size:14px;letter-spacing:.05em}
+.register span b{color:var(--highlight)}
+
+/* Sections */
+section{padding:88px 0}
+section.tight{padding-top:0}
+.sec-head{margin-bottom:48px;max-width:70ch}
+.sec-head h2{font-size:clamp(30px,4vw,46px);font-weight:800;margin-bottom:12px}
+.sec-head p{color:var(--body);font-size:17.5px}
+
+/* Feature cards (from design 3) */
+.courses{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.course{background:#fff;border:2.5px solid var(--ink);border-radius:20px;box-shadow:5px 5px 0 var(--ink);padding:30px 28px;transition:transform .15s, box-shadow .15s;position:relative}
+.course:hover{transform:translate(-3px,-3px);box-shadow:8px 8px 0 var(--ink)}
+.course .emoji{width:52px;height:52px;border-radius:14px;border:2.5px solid var(--ink);display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:18px}
+.course:nth-child(1) .emoji{background:var(--highlight)}
+.course:nth-child(2) .emoji{background:var(--tint-primary)}
+.course:nth-child(3) .emoji{background:var(--tint-highlight)}
+.course h3{font-size:22px;font-weight:800;margin-bottom:8px}
+.course p{font-size:15px;color:var(--body-soft)}
+.course .sticker{position:absolute;top:-14px;right:18px;background:var(--accent);color:#fff;border:2px solid var(--ink);border-radius:999px;font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:5px 12px;transform:rotate(3deg)}
+
+/* Workshop menu (multi-column list) */
+.menu-board{border:2.5px solid var(--ink);background:#fff;border-radius:20px;box-shadow:6px 6px 0 var(--ink);padding:40px 44px;margin-top:30px}
+.menu-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:36px}
+.menu-cols h3{font-size:17px;font-weight:800;color:var(--primary);margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid var(--rule)}
+.menu-cols ul{list-style:none}
+.menu-cols li{padding:5px 0;font-size:15px;font-weight:600}
+.menu-cols li::before{content:"→";color:var(--accent);margin-right:9px;font-weight:900}
+.includes{margin-top:32px;padding-top:24px;border-top:2px dashed var(--rule);display:flex;gap:16px 26px;flex-wrap:wrap;font-size:14.5px;font-weight:700}
+.includes span::before{content:"✓";color:#fff;background:var(--accent);display:inline-flex;width:19px;height:19px;border-radius:50%;align-items:center;justify-content:center;font-size:10.5px;margin-right:8px;vertical-align:middle}
+
+/* Bespoke / highlight dashed box */
+.bespoke{margin-top:26px;border:2.5px dashed var(--ink);border-radius:20px;padding:28px 32px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;background:color-mix(in srgb, #fff 70%, transparent)}
+.bespoke h3{font-size:21px;font-weight:800;margin-bottom:6px}
+.bespoke p{font-size:15px;color:var(--body-soft);max-width:64ch}
+
+/* Audience panels */
+.aud{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.book{border:2.5px solid var(--ink);border-radius:22px;padding:44px 40px;background:#fff;position:relative;box-shadow:6px 6px 0 var(--ink)}
+.book.blue{background:var(--primary);color:var(--text-on-primary)}
+.book.blue h3{color:#fff}
+.book.blue p{color:var(--text-on-primary)}
+.book h3{font-size:26px;font-weight:800;margin-bottom:10px}
+.book .grade{position:absolute;top:-20px;right:22px;font-family:var(--font-hand);font-size:36px;color:var(--accent);transform:rotate(6deg)}
+.book.blue .grade{color:var(--highlight)}
+.book ul{list-style:none;margin:18px 0 26px}
+.book li{padding:6px 0;font-weight:700;font-size:15px}
+.book li::before{content:"★";color:var(--accent);margin-right:10px}
+.book.blue li::before{color:var(--highlight)}
+.book .formats{display:flex;gap:10px;flex-wrap:wrap;margin:4px 0 26px}
+.book .formats span{border:2px solid var(--ink);background:#fff;color:var(--ink);border-radius:999px;padding:5px 14px;font-size:12.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
+
+/* Pricing table */
+.price-table{border:2.5px solid var(--ink);background:#fff;border-radius:20px;box-shadow:6px 6px 0 var(--ink);overflow:hidden;margin-top:8px}
+.price-row{display:grid;grid-template-columns:1.3fr 1fr auto;gap:22px;align-items:center;padding:22px 32px;border-bottom:2px solid var(--rule)}
+.price-row:last-child{border-bottom:0}
+.price-row.head{background:var(--primary);color:#fff;border-bottom:2.5px solid var(--ink);font-family:var(--font-display);font-weight:800;letter-spacing:.04em;font-size:14px;text-transform:uppercase}
+.price-row h3{font-size:18px;font-weight:800}
+.price-row .detail{font-size:14.5px;color:var(--body-soft)}
+.price-row .price{font-family:var(--font-display);font-weight:800;font-size:22px;color:var(--primary);white-space:nowrap}
+.price-note{margin-top:18px;font-size:14.5px;color:var(--body-soft)}
+.price-note .hand{font-size:22px}
+
+/* Testimonials as sticky notes */
+.stickies{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;align-items:start}
+.sticky{background:var(--note);box-shadow:0 10px 20px rgba(0,0,0,.14);padding:30px 26px 34px;font-family:var(--font-hand);font-size:21.5px;line-height:1.3;color:#5c4d10;position:relative}
+.sticky::before{content:"";position:absolute;top:-11px;left:50%;transform:translateX(-50%) rotate(-2deg);width:78px;height:20px;background:var(--tape)}
+.sticky:nth-child(1){transform:rotate(-1.6deg)}
+.sticky:nth-child(2){transform:rotate(1.2deg);background:var(--tint-primary);color:var(--ink)}
+.sticky:nth-child(3){transform:rotate(-.8deg);background:var(--tint-highlight);color:var(--ink)}
+.sticky footer{margin-top:14px;font-family:var(--font-body);font-size:12.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--body-soft)}
+
+/* Report card */
+.report{border:2.5px solid var(--ink);background:#fff;border-radius:20px;max-width:900px;margin:0 auto;box-shadow:6px 6px 0 var(--ink);overflow:hidden}
+.report .rhead{background:var(--primary);color:#fff;padding:20px 32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;border-bottom:2.5px solid var(--ink)}
+.report .rhead h2{color:#fff;font-size:21px;font-weight:800}
+.report .rhead span{font-family:var(--font-hand);font-size:25px;color:var(--highlight)}
+.report .rbody{padding:36px 40px}
+.rrow{display:grid;grid-template-columns:200px 1fr auto;gap:20px;padding:15px 0;border-bottom:1px dashed var(--rule);align-items:center}
+.rrow:last-child{border:0}
+.rrow .subject{font-family:var(--font-display);font-weight:800;color:var(--primary);font-size:15px}
+.rrow .comment{font-size:15.5px;color:var(--body-soft)}
+.rrow .mark{font-family:var(--font-hand);font-size:30px;color:var(--accent);font-weight:600}
+
+/* CTA */
+.cta{
+  text-align:center;border-top:2.5px solid var(--ink);
+  background:
+    radial-gradient(circle at 12% 15%, var(--glow-a), transparent 38%),
+    radial-gradient(circle at 90% 85%, var(--glow-b), transparent 42%);
+}
+.cta h2{font-size:clamp(32px,4.4vw,52px);font-weight:800;margin-bottom:14px}
+.cta p{max-width:54ch;margin:0 auto 30px;color:var(--body)}
+.cta .contact-line{display:flex;gap:14px 34px;justify-content:center;flex-wrap:wrap;margin-top:30px;font-weight:700;font-size:15.5px}
+.cta .contact-line a{color:var(--primary);text-decoration:none;border-bottom:2px solid var(--primary)}
+.cta .hand{display:block;margin-top:28px;font-size:26px;transform:rotate(-1.5deg)}
+
+footer.site{background:var(--ink);color:var(--footer-text);padding:38px 0;font-size:14px;position:relative;z-index:1}
+footer.site .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+footer.site .logo{color:#fff;font-size:19px}
+footer.site .logo svg.mark{width:28px;height:28px}
+footer.site .strap{font-family:var(--font-hand);font-size:20px;color:var(--highlight)}
+
+@media(max-width:920px){
+  body::before{left:26px}
+  .wrap{padding-left:52px}
+  .nav-inner{padding-left:52px}
+  .hero-grid,.aud{grid-template-columns:1fr}
+  .courses,.menu-cols,.stickies{grid-template-columns:1fr}
+  .stack{display:none}
+  .nav-links{display:none}
+  .rrow,.price-row{grid-template-columns:1fr;gap:6px}
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="#">
+      <svg class="mark" viewBox="0 0 64 64" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 24 L18 48 L29 30 L39 48 L52 14" stroke="var(--ink)" stroke-width="5.5"/><circle cx="52" cy="14" r="5" fill="var(--primary)" stroke="var(--ink)" stroke-width="2.6"/></svg>
+      <span>The Wellbeing Classroom<small>with Clare Blackmore</small></span>
+    </a>
+    <div class="nav-links">
+      <a href="#pupils">Pupil workshops</a>
+      <a href="#dbt">DBT groups</a>
+      <a href="#staff">Staff &amp; parents</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#about">About Clare</a>
+      <a href="#contact" class="btn sun" style="padding:10px 20px">Book a call</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="date">This term's priority:</div>
+      <h1>Practical wellbeing tools for your <span class="hl">whole school</span> community.</h1>
+      <p class="lede">The Wellbeing Classroom equips children, young people, parents and school staff with practical, evidence-informed tools that improve emotional wellbeing and build resilience. Every workshop is engaging, interactive and tailored to your school — delivered in person by BACP Registered Counsellor Clare Blackmore.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn">Book Clare for your school</a>
+        <a href="#pupils" class="btn plain">Browse the workshop menu</a>
+      </div>
+      <div class="ticks">
+        <span>BACP Registered · 10+ years' experience</span>
+        <span>CAMHS, Kooth &amp; Compass background</span>
+        <span>Resource pack with every workshop</span>
+      </div>
+    </div>
+    <div class="stack" aria-hidden="true">
+      <div class="card-float cf1">
+        <span class="pill">Pupil workshop</span>
+        <h3>Understanding Anxiety</h3>
+        <p>Interactive strategies pupils can use straight away.</p>
+      </div>
+      <div class="card-float cf2">
+        <span class="pill">INSET training</span>
+        <h3>Understanding Self-Harm</h3>
+        <p>Build calm, confident whole-staff responses.</p>
+      </div>
+      <div class="card-float cf3">
+        <span class="pill">DBT skills group</span>
+        <h3>Emotional Regulation Programme</h3>
+        <p>6, 8 or 10-week evidence-informed programmes.</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="register">
+  <div class="wrap">
+    <span>Attendance: <b>pupils, staff &amp; parents</b></span>
+    <span>Subject: <b>practical, evidence-informed wellbeing</b></span>
+    <span>Serving: <b>schools across Yorkshire &amp; beyond</b></span>
+  </div>
+</div>
+
+<section id="pupils">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Student workshops</span>
+      <h2>Workshops pupils actually enjoy — with strategies they actually use.</h2>
+      <p>Every session blends interactive activities, discussion and practical strategies, and every pupil leaves with take-home activities and a professionally designed resource pack.</p>
+    </div>
+    <div class="courses">
+      <div class="course">
+        <span class="sticker">Most requested</span>
+        <div class="emoji">🌤️</div>
+        <h3>Understanding Anxiety</h3>
+        <p>Help pupils recognise what anxiety is, how it shows up, and the practical tools that calm it — in the moment and long term.</p>
+      </div>
+      <div class="course">
+        <div class="emoji">📝</div>
+        <h3>Exam Wellbeing</h3>
+        <p>Managing stress, sleep and worry through exam season — including a dedicated Preparing for GCSEs workshop.</p>
+      </div>
+      <div class="course">
+        <div class="emoji">🕊️</div>
+        <h3>Bereavement &amp; Loss</h3>
+        <p>Specialist, gentle sessions supporting pupils through grief and change, from a trained bereavement specialist.</p>
+      </div>
+    </div>
+
+    <div class="menu-board">
+      <div class="menu-cols">
+        <div>
+          <h3>Mental Health &amp; Wellbeing</h3>
+          <ul>
+            <li>Understanding Anxiety</li>
+            <li>Managing Stress</li>
+            <li>Emotional Regulation</li>
+            <li>Building Confidence &amp; Self-esteem</li>
+            <li>Healthy Minds</li>
+            <li>Better Sleep</li>
+            <li>Exam Wellbeing &amp; Managing Worry</li>
+            <li>Coping with Change</li>
+            <li>Healthy Friendships</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Specialist Workshops</h3>
+          <ul>
+            <li>Bereavement &amp; Loss</li>
+            <li>Self-harm Awareness</li>
+            <li>Building Resilience</li>
+            <li>Transition to Secondary School</li>
+            <li>Preparing for GCSEs</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Contemporary Issues</h3>
+          <ul>
+            <li>Managing Social Media</li>
+            <li>Online Safety &amp; Digital Wellbeing</li>
+            <li>Healthy Relationships</li>
+            <li>Emotional Literacy</li>
+            <li>Exploring Misogyny &amp; Online Culture</li>
+          </ul>
+        </div>
+      </div>
+      <div class="includes">
+        <span>Interactive activities</span>
+        <span>Discussion</span>
+        <span>Practical strategies</span>
+        <span>Resource pack</span>
+        <span>Take-home activities</span>
+      </div>
+    </div>
+
+    <div class="bespoke">
+      <div>
+        <h3>Bespoke: Exploring Misogyny &amp; the Influence of Online Culture</h3>
+        <p>A tailored workshop helping young people critically explore misogyny, harmful online influences and gender stereotypes — building empathy, critical thinking, and healthy, respectful relationships. Adaptable by age group, as a single session or part of a wider PSHE programme.</p>
+      </div>
+      <a href="#contact" class="btn plain">Ask about this workshop</a>
+    </div>
+  </div>
+</section>
+
+<section id="dbt" class="tight">
+  <div class="wrap">
+    <div class="aud">
+      <div class="book blue">
+        <span class="grade">6–10 wks</span>
+        <h3>DBT Skills Groups</h3>
+        <p>An evidence-informed Emotional Regulation Programme for young people experiencing emotional dysregulation, self-harming behaviours, anxiety, impulsivity or relationship difficulties.</p>
+        <ul>
+          <li>Mindfulness</li>
+          <li>Distress Tolerance</li>
+          <li>Emotion Regulation</li>
+          <li>Interpersonal Effectiveness</li>
+        </ul>
+        <div class="formats"><span>6 weeks</span><span>8 weeks</span><span>10 weeks</span></div>
+        <a href="#contact" class="btn sun">Enquire about a group</a>
+      </div>
+      <div class="book">
+        <span class="grade">A*</span>
+        <h3>Resource packs included</h3>
+        <p>Every workshop comes with professionally designed PDF resources — so the learning carries on long after Clare leaves.</p>
+        <ul>
+          <li>Practical activities &amp; reflection exercises</li>
+          <li>Wellbeing planners</li>
+          <li>Staff guidance &amp; parent handouts</li>
+          <li>Follow-up activities</li>
+        </ul>
+        <p style="font-size:14.5px">Schools can also commission bespoke resources.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="staff" class="tight">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow" style="transform:rotate(1.2deg)">Staff &amp; parents</span>
+      <h2>Confident adults make safer schools.</h2>
+      <p>Wellbeing sticks when every adult around a child knows how to respond — in the classroom and at home.</p>
+    </div>
+    <div class="aud">
+      <div class="book">
+        <span class="grade">INSET ✓</span>
+        <h3>INSET training for staff</h3>
+        <p>Supporting staff wellbeing and confidence. Popular sessions include:</p>
+        <ul>
+          <li>Supporting pupils with anxiety</li>
+          <li>Understanding self-harm</li>
+          <li>Trauma-informed practice</li>
+          <li>Bereavement in schools</li>
+          <li>Emotional regulation in the classroom</li>
+          <li>Having difficult conversations</li>
+          <li>Recognising mental health concerns</li>
+          <li>Staff wellbeing &amp; building resilient school communities</li>
+        </ul>
+        <div class="formats"><span>Twilight</span><span>Half-day</span><span>Full-day</span><span>Bespoke</span></div>
+        <a href="#contact" class="btn">Plan staff training</a>
+      </div>
+      <div class="book">
+        <span class="grade">New!</span>
+        <h3>Parent workshops</h3>
+        <p>Supporting parents to support their children — with practical strategies and downloadable resources to take home.</p>
+        <ul>
+          <li>Helping children manage anxiety</li>
+          <li>Teen mental health</li>
+          <li>Better sleep for children</li>
+          <li>Emotional regulation at home</li>
+          <li>Self-harm awareness</li>
+          <li>Social media &amp; wellbeing</li>
+          <li>Supporting grief and loss</li>
+        </ul>
+        <a href="#contact" class="btn plain">Arrange a parent session</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" class="tight">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Pricing</span>
+      <h2>Simple pricing, tailored delivery.</h2>
+    </div>
+    <div class="price-table">
+      <div class="price-row head"><span>Format</span><span>Details</span><span>From</span></div>
+      <div class="price-row">
+        <h3>Workshop</h3>
+        <span class="detail">60–90 minute pupil, staff or parent workshop</span>
+        <span class="price">£175</span>
+      </div>
+      <div class="price-row">
+        <h3>Half day</h3>
+        <span class="detail">Multiple workshops or year-group sessions</span>
+        <span class="price">£350</span>
+      </div>
+      <div class="price-row">
+        <h3>Full day</h3>
+        <span class="detail">A full programme across your school day</span>
+        <span class="price">£600</span>
+      </div>
+      <div class="price-row">
+        <h3>INSET — half day</h3>
+        <span class="detail">Staff training, twilight or morning session</span>
+        <span class="price">£450</span>
+      </div>
+      <div class="price-row">
+        <h3>INSET — full day</h3>
+        <span class="detail">Whole-staff development day</span>
+        <span class="price">£750</span>
+      </div>
+      <div class="price-row">
+        <h3>DBT Skills Groups</h3>
+        <span class="detail">6, 8 or 10-week programmes — priced by group size and length</span>
+        <span class="price">On request</span>
+      </div>
+    </div>
+    <p class="price-note">Discounted rates available for multiple bookings and Multi-Academy Trusts. <span class="hand">— ask about a package for your trust!</span></p>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow" style="transform:rotate(-1deg)">What schools say</span>
+      <h2>Notes from the staffroom.</h2>
+    </div>
+    <!-- PLACEHOLDER TESTIMONIALS — replace with genuine quotes as Clare collects them -->
+    <div class="stickies">
+      <div class="sticky">"Clare delivered engaging workshops that immediately connected with our students. Her calm, approachable style gave pupils practical strategies they could use straight away."<footer>— Placeholder testimonial</footer></div>
+      <div class="sticky">"Our staff left feeling more confident in supporting students with their emotional wellbeing."<footer>— Placeholder testimonial</footer></div>
+      <div class="sticky">"Professional, knowledgeable and incredibly relatable."<footer>— Placeholder testimonial</footer></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow" style="transform:rotate(1.2deg)">Meet Clare</span>
+      <h2>The counsellor behind The Wellbeing Classroom.</h2>
+      <p>Clare Blackmore is a BACP Registered Counsellor with more than ten years' experience supporting children, young people and adults — across the NHS, education, charities and specialist mental health services including CAMHS, Kooth, Compass, the School Advisory Service and private practice. Her warm, practical approach helps schools feel confident supporting the emotional wellbeing of their pupils.</p>
+    </div>
+    <div class="report">
+      <div class="rhead">
+        <h2>Report card: Clare Blackmore, Founder</h2>
+        <span>Top of the class ✓</span>
+      </div>
+      <div class="rbody">
+        <div class="rrow">
+          <div class="subject">Registration</div>
+          <div class="comment">Registered Member of the BACP · CPCAB Level 4 Diploma in Therapeutic Counselling.</div>
+          <div class="mark">✓✓</div>
+        </div>
+        <div class="rrow">
+          <div class="subject">Experience</div>
+          <div class="comment">Over 10 years' counselling across CAMHS, Kooth, Compass, the School Advisory Service and private practice.</div>
+          <div class="mark">A*</div>
+        </div>
+        <div class="rrow">
+          <div class="subject">Specialisms</div>
+          <div class="comment">Anxiety, low mood, self-harm, trauma, bereavement, emotional regulation, neurodiversity, exam stress and family difficulties.</div>
+          <div class="mark">✓✓</div>
+        </div>
+        <div class="rrow">
+          <div class="subject">Training</div>
+          <div class="comment">Suicide Intervention (ASIST) · Trauma-informed practice · Bereavement specialist · DBT-informed practitioner.</div>
+          <div class="mark">✓✓</div>
+        </div>
+        <div class="rrow">
+          <div class="subject">Currently</div>
+          <div class="comment">Undertaking a Certificate in Clinical Supervision — always learning, just like her pupils.</div>
+          <div class="mark">✓</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <div class="wrap">
+    <h2>Put wellbeing on the timetable.</h2>
+    <p>Tell Clare what your school community needs this year — she'll suggest the right workshops, training or programme, tailored to your pupils, staff and parents.</p>
+    <a href="mailto:hello@thewellbeingclassroom.co.uk" class="btn">Email The Wellbeing Classroom</a>
+    <div class="contact-line">
+      <!-- PLACEHOLDERS: confirm email, add phone number and final domain -->
+      <a href="mailto:hello@thewellbeingclassroom.co.uk">hello@thewellbeingclassroom.co.uk</a>
+      <span>📱 Phone number to add</span>
+      <span>🌐 www.thewellbeingclassroom.co.uk</span>
+    </div>
+    <span class="hand">— see you in the classroom!</span>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <a class="logo" href="#"><svg class="mark" viewBox="0 0 64 64" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 24 L18 48 L29 30 L39 48 L52 14" stroke="#fff" stroke-width="5.5"/><circle cx="52" cy="14" r="5" fill="var(--primary)"/></svg>The Wellbeing Classroom</a>
+    <span class="strap">"Supporting healthier minds, stronger schools and brighter futures."</span>
+    <span>Clare Blackmore · BACP Registered Counsellor · Yorkshire &amp; beyond</span>
+  </div>
+</footer>
+
+</body>
+</html>

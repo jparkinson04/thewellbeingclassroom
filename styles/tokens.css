@@ -1,0 +1,79 @@
+/* ============================================================
+   THE WELLBEING CLASSROOM — BRAND TOKENS
+   Change the site's entire colour scheme by editing this file.
+   Default: "Rose & Mint" (pink + green — closest to the
+   sage-green-and-blush direction Clare mentioned, kept poppy).
+   Alternate palettes are at the bottom — copy one over :root
+   to switch.
+   ============================================================ */
+
+:root{
+  /* Core palette */
+  --primary:#D94F8E;        /* buttons, panels, headings on colour */
+  --primary-dark:#B93A75;   /* hover/pressed */
+  --highlight:#A9E5B4;      /* highlighter swipes, badges, sun buttons */
+  --accent:#2F9461;         /* handwriting, stickers, doodles */
+  --ink:#2E1B26;            /* text + borders */
+
+  /* Notepad surfaces */
+  --paper:#FCFBF4;          /* page background */
+  --rule:#F5DCE8;           /* ruled notebook lines */
+  --margin:#F3A8A0;         /* red margin line */
+  --note:#FFF3B0;           /* sticky notes */
+
+  /* Tints (derived — keep in the primary/highlight families) */
+  --tint-primary:#FBD7E6;   /* light primary backgrounds */
+  --tint-highlight:#D9F0DD; /* light highlight backgrounds */
+  --tint-neutral:#FAF0F5;   /* pills, subtle fills */
+  --text-on-primary:#FBD9E8;/* body text on primary panels */
+  --body:#4a3341;           /* body copy */
+  --body-soft:#4d3644;      /* secondary copy */
+  --faded:#A5879A;          /* dates, hints */
+  --footer-text:#D9BCCB;
+
+  /* Hero / CTA gradient stops */
+  --glow-a:rgba(169,229,180,.6);   /* highlight glow */
+  --glow-b:rgba(217,79,142,.13);   /* primary glow */
+  --tape:rgba(47,148,97,.35);      /* washi tape on cards */
+
+  /* Type */
+  --font-display:'Bricolage Grotesque',sans-serif;
+  --font-body:'Nunito Sans',sans-serif;
+  --font-hand:'Caveat',cursive;
+}
+
+/* ------------------------------------------------------------
+   ALTERNATE PALETTES (approved mockup colourways)
+   To use one, replace the matching variables in :root above.
+   ------------------------------------------------------------
+
+   RASPBERRY & CUSTARD (pink + yellow)
+   --primary:#D6336C; --primary-dark:#B02458;
+   --highlight:#FFC93C; --accent:#FF6B57; --ink:#33202A;
+   --rule:#F5DDE6; --tint-primary:#FBD9E4; --tint-highlight:#FFD9D2;
+   --tint-neutral:#FAF0F3; --text-on-primary:#FBDCE7;
+   --body:#4a3340; --body-soft:#4d3644; --faded:#A58794;
+   --footer-text:#D9BCC9;
+   --glow-a:rgba(255,201,60,.55); --glow-b:rgba(214,51,108,.12);
+   --tape:rgba(255,107,87,.4);
+
+   ORCHARD (green + apricot)
+   --primary:#2E7D4F; --primary-dark:#23623E;
+   --highlight:#FFBE76; --accent:#F4633A; --ink:#182B1F;
+   --rule:#DCE9DE; --tint-primary:#D6EDDD; --tint-highlight:#FFE3CB;
+   --tint-neutral:#EFF6F0; --text-on-primary:#D9EFDF;
+   --body:#35443a; --body-soft:#3a4a40; --faded:#7f9686;
+   --footer-text:#B7C6BB;
+   --glow-a:rgba(255,190,118,.55); --glow-b:rgba(46,125,79,.14);
+   --tape:rgba(244,99,58,.35);
+
+   MARIGOLD (orange + peach + olive)
+   --primary:#DE5F1D; --primary-dark:#B84F14;
+   --highlight:#FFCE9E; --accent:#6F8F3F; --ink:#2E2418;
+   --rule:#EFE2CF; --tint-primary:#FFE2C7; --tint-highlight:#E7EFD8;
+   --tint-neutral:#FAF2E8; --text-on-primary:#FFE4CB;
+   --body:#4a3d2e; --body-soft:#4d4032; --faded:#A89376;
+   --footer-text:#D4C6B0;
+   --glow-a:rgba(255,206,158,.55); --glow-b:rgba(222,95,29,.12);
+   --tape:rgba(111,143,63,.35);
+------------------------------------------------------------ */
