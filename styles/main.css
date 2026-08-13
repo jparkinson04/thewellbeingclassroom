@@ -53,6 +53,8 @@ nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb, var(--paper) 
 .hero-note{position:absolute;left:2px;top:2px;width:92px;font-family:var(--font-hand);color:var(--faded);font-size:19px;line-height:1.12;text-align:right;transform:rotate(-4deg)}
 .hero-note .note-arrow{display:block;width:50px;margin:6px 0 0 auto}
 .hero h1{font-size:clamp(42px,5.6vw,76px);font-weight:800;letter-spacing:-.025em;line-height:1.04}
+.hero-body{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px 48px;align-items:end}
+.hero-art{width:min(330px,30vw);height:auto;justify-self:end}
 .hero-sub{margin-top:26px;font-size:clamp(17px,1.55vw,21px);color:var(--body);max-width:58ch}
 .hero-ctas{display:flex;gap:15px;flex-wrap:wrap;margin-top:30px}
 .hero-proof{display:flex;gap:10px 26px;flex-wrap:wrap;margin-top:26px;font-size:13.5px;font-weight:700;color:var(--body-soft)}
@@ -198,6 +200,8 @@ footer.site .strap{font-family:var(--font-hand);font-size:20px;color:var(--highl
   .rrow,.price-row{grid-template-columns:1fr;gap:6px}
   /* Margin gutter is too narrow for the note here — sit it above the headline */
   .hero-head{padding:0 28px 0 52px}
+  .hero-body{display:block}
+  .hero-art{display:block;margin:36px auto 0;width:min(300px,82%)}
   .hero-note{position:static;width:auto;max-width:200px;text-align:left;transform:rotate(-3deg);margin:0 0 10px 4px}
   .hero-note .note-arrow{display:inline-block;width:40px;margin:0 0 -12px 8px}
 
