@@ -42,39 +42,44 @@ nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb, var(--paper) 
 .nav-toggle:active{transform:translate(1px,1px);box-shadow:1px 1px 0 var(--ink)}
 .nav-toggle[aria-expanded="true"]{background:var(--highlight)}
 
-/* Hero */
+/* Hero — "the term's front page": full-width typographic poster
+   hugging the margin rule, with a band of papers crossing the fold */
 .hero{
-  padding:90px 0 80px;position:relative;
+  padding:64px 0 0;position:relative;
   background:
     radial-gradient(circle at 86% 10%, var(--glow-a), transparent 36%),
     radial-gradient(circle at 4% 92%, var(--glow-b), transparent 42%);
 }
-.hero-grid{display:grid;grid-template-columns:1.18fr .82fr;gap:56px;align-items:center}
-.hero .date{font-family:var(--font-hand);color:var(--faded);font-size:23px;margin-bottom:8px}
-.hero h1{font-size:clamp(38px,5.2vw,62px);font-weight:800;margin-bottom:22px}
-.hero p.lede{font-size:19px;max-width:54ch;margin-bottom:30px;color:var(--body)}
-.hero-ctas{display:flex;gap:15px;flex-wrap:wrap;margin-bottom:28px}
-.ticks{display:flex;gap:18px;flex-wrap:wrap;font-size:14.5px;font-weight:700}
-.ticks span::before{content:"✓";display:inline-flex;width:20px;height:20px;border-radius:50%;background:var(--primary);color:#fff;align-items:center;justify-content:center;font-size:11px;margin-right:8px;vertical-align:middle}
+.hero-head{position:relative;padding:26px 48px 0 96px}
+.hero-note{position:absolute;left:2px;top:2px;width:92px;font-family:var(--font-hand);color:var(--faded);font-size:19px;line-height:1.12;text-align:right;transform:rotate(-4deg)}
+.hero-note .note-arrow{display:block;width:50px;margin:6px 0 0 auto}
+.hero h1{font-size:clamp(42px,6.3vw,91px);font-weight:800;letter-spacing:-.025em;line-height:1.02;max-width:1300px}
+.hero-sub{margin-top:26px;font-size:clamp(17px,1.55vw,21px);color:var(--body);max-width:58ch}
+.hero-ctas{display:flex;gap:15px;flex-wrap:wrap;margin-top:30px}
+.hero-proof{display:flex;gap:10px 26px;flex-wrap:wrap;margin-top:26px;font-size:13.5px;font-weight:700;color:var(--body-soft)}
+.hero-proof span::before{content:"✓";display:inline-flex;width:18px;height:18px;border-radius:50%;background:var(--primary);color:#fff;align-items:center;justify-content:center;font-size:10px;margin-right:8px;vertical-align:middle}
 
-/* Floating course cards */
-.stack{position:relative;min-height:430px}
-.card-float{position:absolute;background:#fff;border:2.5px solid var(--ink);border-radius:18px;box-shadow:6px 6px 0 var(--ink);padding:24px;width:80%}
-.card-float::before{content:"";position:absolute;top:-11px;left:50%;transform:translateX(-50%) rotate(-2deg);width:78px;height:20px;background:var(--tape)}
-.card-float h3{font-size:19px;font-weight:800;margin-bottom:6px}
-.card-float p{font-size:14px;color:var(--body-soft)}
-.card-float .pill{display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;background:var(--tint-neutral);border:2px solid var(--ink);border-radius:999px;padding:3px 10px;margin-bottom:10px}
-.cf1{top:0;left:0;transform:rotate(-2.4deg);background:var(--highlight)}
-.cf1 .pill{background:#fff}
-.cf2{top:136px;right:0;transform:rotate(1.8deg)}
-.cf3{top:278px;left:20px;transform:rotate(-1.2deg);background:var(--primary)}
-.cf3 h3{color:#fff}
-.cf3 p{color:var(--text-on-primary)}
-.cf3 .pill{background:var(--primary-dark);color:#fff;border-color:#fff}
-.cf3::before{background:var(--glow-a)}
+/* Papers on the desk — overlapping band that breaks the hero's bottom edge */
+.desk{position:relative;z-index:5;display:flex;align-items:flex-end;justify-content:center;max-width:1180px;margin:64px auto -48px;padding:22px 32px 0 72px}
+.paper{display:block;width:32%;background:#fff;border:2.5px solid var(--ink);border-radius:18px;box-shadow:6px 6px 0 var(--ink);padding:24px;position:relative;text-decoration:none;color:inherit;transform:rotate(var(--rot,0deg)) translateY(var(--lift,0px));transition:transform .18s,box-shadow .18s}
+.paper+.paper{margin-left:-56px}
+.paper::before{content:"";position:absolute;top:-11px;left:50%;transform:translateX(-50%) rotate(-2deg);width:78px;height:20px;background:var(--tape)}
+.paper h3{font-size:19px;font-weight:800;margin-bottom:6px}
+.paper p{font-size:14px;color:var(--body-soft)}
+.paper .pill{display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;background:var(--tint-neutral);border:2px solid var(--ink);border-radius:999px;padding:3px 10px;margin-bottom:10px}
+.p1{--rot:-3deg;background:var(--highlight);z-index:1}
+.p1 .pill{background:#fff}
+.p2{--rot:2.5deg;--lift:-16px;z-index:3}
+.p3{--rot:-1.5deg;background:var(--primary);z-index:2}
+.p3 h3{color:#fff}
+.p3 p{color:var(--text-on-primary)}
+.p3 .pill{background:var(--primary-dark);color:#fff;border-color:#fff}
+.p3::before{background:var(--glow-a)}
+.paper:hover,.paper:focus-visible{transform:rotate(0deg) translateY(calc(var(--lift,0px) - 4px));box-shadow:8px 8px 0 var(--ink);z-index:6}
+.paper:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 
-/* Register strip */
-.register{border-top:2.5px solid var(--ink);border-bottom:2.5px solid var(--ink);background:var(--ink);color:#fff;padding:17px 0;position:relative;z-index:1}
+/* Register strip (home only) — extra top padding clears the desk band overlap */
+.register{border-top:2.5px solid var(--ink);border-bottom:2.5px solid var(--ink);background:var(--ink);color:#fff;padding:72px 0 17px;position:relative;z-index:1}
 .register .wrap{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;font-family:var(--font-display);font-weight:600;font-size:14px;letter-spacing:.05em}
 .register span b{color:var(--highlight)}
 
@@ -180,14 +185,22 @@ footer.site .logo{color:#fff;font-size:19px}
 footer.site .logo svg.mark{width:28px;height:28px}
 footer.site .strap{font-family:var(--font-hand);font-size:20px;color:var(--highlight)}
 
+@media(max-width:1024px){
+  .hero h1{font-size:clamp(40px,6vw,66px)}
+  .paper+.paper{margin-left:-40px}
+}
+
 @media(max-width:920px){
   body::before{left:26px}
   .wrap{padding-left:52px}
   .nav-inner{padding-left:52px}
-  .hero-grid,.aud{grid-template-columns:1fr}
+  .aud{grid-template-columns:1fr}
   .courses,.menu-cols,.stickies{grid-template-columns:1fr}
-  .stack{display:none}
   .rrow,.price-row{grid-template-columns:1fr;gap:6px}
+  /* Margin gutter is too narrow for the note here — sit it above the headline */
+  .hero-head{padding:0 28px 0 52px}
+  .hero-note{position:static;width:auto;max-width:200px;text-align:left;transform:rotate(-3deg);margin:0 0 10px 4px}
+  .hero-note .note-arrow{display:inline-block;width:40px;margin:0 0 -12px 8px}
 
   /* Mobile nav: toggle button + dropdown notepad panel */
   .nav-toggle{display:inline-flex}
@@ -202,4 +215,24 @@ footer.site .strap{font-family:var(--font-hand);font-size:20px;color:var(--highl
   .nav-links a:hover{background:var(--tint-neutral)}
   .nav-links a[aria-current="page"]{background:linear-gradient(transparent 55%, var(--highlight) 55%, var(--highlight) 92%, transparent 92%)}
   .nav-links .btn{text-align:center;margin-top:6px}
+}
+
+@media(max-width:680px){
+  /* Papers become a scroll-snap row, still nudging past the fold */
+  .desk{justify-content:flex-start;overflow-x:auto;scroll-snap-type:x mandatory;gap:18px;margin:48px 0 -48px;padding:22px 24px 8px 52px;-webkit-overflow-scrolling:touch}
+  .paper{flex:0 0 76%;width:auto;max-width:320px;scroll-snap-align:center}
+  .paper+.paper{margin-left:0}
+  .p1{--rot:-1deg}
+  .p2{--rot:1deg;--lift:0px}
+  .p3{--rot:-1deg}
+}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .btn,.course,.nav-toggle,.paper{transition:none}
+  .btn:hover,.btn:active{transform:none;box-shadow:4px 4px 0 var(--ink)}
+  .course:hover{transform:none;box-shadow:5px 5px 0 var(--ink)}
+  .paper:hover,.paper:focus-visible{transform:rotate(var(--rot,0deg)) translateY(var(--lift,0px));box-shadow:6px 6px 0 var(--ink)}
+  .paper:hover h3,.paper:focus-visible h3{text-decoration:underline}
+  .nav-toggle:hover,.nav-toggle:active{transform:none;box-shadow:3px 3px 0 var(--ink)}
 }
