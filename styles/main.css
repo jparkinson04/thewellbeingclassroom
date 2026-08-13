@@ -55,8 +55,6 @@ nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb, var(--paper) 
 .hero h1{font-size:clamp(42px,5.6vw,76px);font-weight:800;letter-spacing:-.025em;line-height:1.04}
 .hero-sub{margin-top:26px;font-size:clamp(17px,1.55vw,21px);color:var(--body);max-width:58ch}
 .hero-ctas{display:flex;gap:15px;flex-wrap:wrap;margin-top:30px}
-.hero-proof{display:flex;gap:10px 26px;flex-wrap:wrap;margin-top:26px;font-size:13.5px;font-weight:700;color:var(--body-soft)}
-.hero-proof span::before{content:"✓";display:inline-flex;width:18px;height:18px;border-radius:50%;background:var(--primary);color:#fff;align-items:center;justify-content:center;font-size:10px;margin-right:8px;vertical-align:middle}
 
 /* Papers on the desk — overlapping band that breaks the hero's bottom edge */
 .desk{position:relative;z-index:5;display:flex;align-items:flex-end;justify-content:center;max-width:1180px;margin:64px auto -48px;padding:22px 32px 0 72px}
