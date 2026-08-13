@@ -32,7 +32,6 @@ nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb, var(--paper) 
 .nav-inner{max-width:1120px;margin:0 auto;padding:15px 28px 15px 96px;display:flex;align-items:center;justify-content:space-between;position:relative}
 .logo{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:800;font-size:22px;text-decoration:none;color:var(--ink);line-height:1}
 .logo svg.mark{flex:none;width:36px;height:36px}
-.logo small{display:block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--primary)}
 .nav-links{display:flex;gap:24px;align-items:center;font-size:15px;font-weight:700}
 .nav-links a{text-decoration:none;color:var(--ink)}
 .nav-links a:hover{color:var(--primary)}
