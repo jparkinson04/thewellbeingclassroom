@@ -84,9 +84,13 @@ section.tight{padding-top:0}
 .sec-head h2{font-size:clamp(30px,4vw,46px);font-weight:800;margin-bottom:12px}
 .sec-head p{color:var(--body);font-size:17.5px}
 
-/* Workshop catalogue */
-.catalog h2{font-size:23px;font-weight:800;margin:48px 0 22px}
-.catalog h2:first-child{margin-top:40px}
+/* Workshop catalogue (categories collapse into an accordion on phones) */
+.cat-group{margin-top:44px}
+.cat-group:first-of-type{margin-top:36px}
+.cat-sum{list-style:none;display:flex;align-items:baseline;gap:14px;margin-bottom:22px;pointer-events:none}
+.cat-sum::-webkit-details-marker{display:none}
+.cat-sum h2{font-size:23px;font-weight:800}
+.cat-sum .count{font-size:13.5px;font-weight:700;color:var(--faded);white-space:nowrap}
 .cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .cat-card{background:#fff;border:2.5px solid var(--ink);border-radius:16px;box-shadow:4px 4px 0 var(--ink);padding:20px 22px;position:relative;transition:transform .15s, box-shadow .15s}
 .cat-card:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
@@ -193,7 +197,15 @@ footer.site .strap{font-family:var(--font-hand);font-size:20px;color:var(--highl
 }
 
 @media(max-width:680px){
-  .cat-grid{grid-template-columns:1fr}
+  .cat-grid{grid-template-columns:1fr;gap:14px}
+  .cat-group{margin-top:26px;border:2.5px solid var(--ink);border-radius:16px;background:#fff;box-shadow:4px 4px 0 var(--ink);padding:16px 18px}
+  .cat-sum{pointer-events:auto;cursor:pointer;margin-bottom:0;align-items:center;justify-content:space-between}
+  .cat-sum h2{font-size:19px}
+  .cat-sum .count{margin-left:auto}
+  .cat-sum::after{content:"+";font-family:var(--font-hand);font-size:28px;line-height:1;color:var(--accent);flex:none}
+  details[open] .cat-sum::after{content:"\2013"}
+  details[open] .cat-sum{margin-bottom:16px}
+  .cat-card{padding:15px 16px;box-shadow:3px 3px 0 var(--ink)}
   section{padding:64px 0}
   section.tight{padding-top:0}
   .hero{padding:56px 0 72px}

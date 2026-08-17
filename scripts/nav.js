@@ -27,3 +27,11 @@
     }
   });
 })();
+
+/* Workshops catalogue: on phones, start with only the first category open.
+   Without JS, all categories simply stay open. */
+if (window.matchMedia('(max-width: 680px)').matches) {
+  document.querySelectorAll('details.cat-group').forEach(function (d, i) {
+    if (i > 0) d.removeAttribute('open');
+  });
+}
