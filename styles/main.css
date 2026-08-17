@@ -41,29 +41,27 @@ nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb, var(--paper) 
 .nav-toggle:active{transform:translate(1px,1px);box-shadow:1px 1px 0 var(--ink)}
 .nav-toggle[aria-expanded="true"]{background:var(--highlight)}
 
-/* Hero — headline beside a taped photo frame on ruled paper */
+/* Hero — full-bleed photo background (placeholder wash until the real
+   photo arrives; see the PLACEHOLDER comment in index.html). The scrim is a
+   left-heavy paper wash so the dark headline stays readable over any photo. */
 .hero{
-  padding:64px 0 84px;position:relative;
+  position:relative;overflow:hidden;padding:110px 0 120px;
   background:
-    radial-gradient(circle at 86% 10%, var(--glow-a), transparent 36%),
-    radial-gradient(circle at 4% 92%, var(--glow-b), transparent 42%);
+    radial-gradient(circle at 80% 20%, var(--glow-a), transparent 45%),
+    radial-gradient(circle at 10% 90%, var(--glow-b), transparent 50%),
+    var(--tint-neutral);
 }
-.hero-head{position:relative;max-width:1120px;margin:0 auto;padding:26px 28px 0 96px}
-.hero-note{position:absolute;left:2px;top:2px;width:92px;font-family:var(--font-hand);color:var(--faded);font-size:19px;line-height:1.12;text-align:right;transform:rotate(-4deg)}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.hero-scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,
+  color-mix(in srgb, var(--paper) 88%, transparent) 0%,
+  color-mix(in srgb, var(--paper) 72%, transparent) 52%,
+  color-mix(in srgb, var(--paper) 30%, transparent) 100%)}
+.hero-head{position:relative;z-index:2;max-width:1120px;margin:0 auto;padding:0 28px 0 96px}
+.hero-note{position:absolute;left:2px;top:-64px;width:92px;font-family:var(--font-hand);color:var(--faded);font-size:19px;line-height:1.12;text-align:right;transform:rotate(-4deg)}
 .hero-note .note-arrow{display:block;width:50px;margin:6px 0 0 auto}
-.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:56px;align-items:center}
-.hero h1{font-size:clamp(38px,4.6vw,60px);font-weight:800;letter-spacing:-.02em;line-height:1.05}
-.hero-sub{margin-top:26px;font-size:clamp(17px,1.55vw,21px);color:var(--body);max-width:58ch}
+.hero h1{font-size:clamp(38px,4.8vw,64px);font-weight:800;letter-spacing:-.02em;line-height:1.05;max-width:20ch}
+.hero-sub{margin-top:26px;font-size:clamp(17px,1.55vw,21px);color:var(--body);max-width:52ch}
 .hero-ctas{display:flex;gap:15px;flex-wrap:wrap;margin-top:30px}
-
-/* Hero photo — taped, slightly rotated frame; placeholder until a real photo arrives */
-.hero-photo{margin:0;background:#fff;border:2.5px solid var(--ink);border-radius:18px;box-shadow:6px 6px 0 var(--ink);padding:16px 16px 20px;position:relative;transform:rotate(1.8deg)}
-.hero-photo::before{content:"";position:absolute;top:-11px;left:50%;transform:translateX(-50%) rotate(-2deg);width:78px;height:20px;background:var(--tape)}
-.hero-photo img{display:block;width:100%;border-radius:10px}
-.photo-well{aspect-ratio:4/3;border-radius:10px;border:2px dashed var(--rule);background:var(--tint-neutral);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;padding:24px}
-.photo-well svg{width:60px;height:60px}
-.photo-well .hand{font-size:25px}
-.photo-soon{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--faded)}
 
 /* Register strip (home only) */
 .register{border-top:2.5px solid var(--ink);border-bottom:2.5px solid var(--ink);background:var(--ink);color:#fff;padding:17px 0;position:relative;z-index:1}
@@ -173,7 +171,7 @@ footer.site .logo svg.mark{width:28px;height:28px}
 footer.site .strap{font-family:var(--font-hand);font-size:20px;color:var(--highlight)}
 
 @media(max-width:1024px){
-  .hero-grid{gap:36px}
+  .hero{padding:90px 0 100px}
 }
 
 @media(max-width:920px){
@@ -187,8 +185,6 @@ footer.site .strap{font-family:var(--font-hand);font-size:20px;color:var(--highl
   .hero-head{padding:0 28px 0 52px}
   .hero-note{position:static;width:auto;max-width:200px;text-align:left;transform:rotate(-3deg);margin:0 0 10px 4px}
   .hero-note .note-arrow{display:inline-block;width:40px;margin:0 0 -12px 8px}
-  .hero-grid{grid-template-columns:1fr;gap:44px}
-  .hero-photo{max-width:440px;margin:0 auto;width:100%}
 
   /* Mobile nav: toggle button + dropdown notepad panel */
   .nav-toggle{display:inline-flex}
