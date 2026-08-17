@@ -66,9 +66,19 @@
        this comment (landscape, at least 1600px wide). It fills the whole hero behind the
        text; the .hero-scrim layer keeps the headline readable over it. -->
   <div class="hero-scrim" aria-hidden="true"></div>
+  <!-- Full-bleed animated "W Rise" line (draws once on load; dot driven by scripts/nav.js).
+       The whole route lives in the #w-rise-route group: edit the path points there to
+       re-route the line, e.g. around a future hero photo. Coordinates are in the
+       1440x600 viewBox and stretch with the hero; the stroke width stays constant. -->
+  <svg class="hero-line" viewBox="0 0 1440 600" preserveAspectRatio="none" fill="none" aria-hidden="true">
+    <g id="w-rise-route">
+      <path id="w-rise-path" pathLength="1" vector-effect="non-scaling-stroke" d="M -24 470 L 320 565 L 650 490 L 950 565 L 1330 235" stroke="var(--ink)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+  </svg>
+  <span class="hero-dot" id="hero-dot" aria-hidden="true"></span>
   <div class="hero-head">
     <p class="hero-note" aria-hidden="true">This term's priority:
-      <svg class="note-arrow" viewBox="0 0 64 42" fill="none" aria-hidden="true"><path d="M4 6 C 24 2, 42 12, 56 32 M56 32 l-12 -3 M56 32 l-2 -12" stroke="var(--accent)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <svg class="note-arrow" viewBox="0 0 64 42" fill="none" aria-hidden="true"><path pathLength="1" d="M4 6 C 24 2, 42 12, 56 32 M56 32 l-12 -3 M56 32 l-2 -12" stroke="var(--accent)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </p>
     <h1>Practical wellbeing tools for your <span class="hl">whole school</span> community.</h1>
     <p class="hero-sub">In-person workshops and training for pupils, staff and parents across Yorkshire.</p>

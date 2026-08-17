@@ -56,6 +56,14 @@ nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb, var(--paper) 
   color-mix(in srgb, var(--paper) 72%, transparent) 52%,
   color-mix(in srgb, var(--paper) 30%, transparent) 100%)}
 .hero-bg ~ .hero-scrim{display:block} /* scrim activates only once the photo img exists */
+/* Full-bleed W Rise line + travelling dot. Statics here; the once-only
+   load animation lives at the bottom of this file under prefers-reduced-motion:
+   no-preference (reduced motion just shows this completed state). */
+.hero-line{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;overflow:visible}
+.hero-dot{position:absolute;z-index:1;width:22px;height:22px;border-radius:50%;background:var(--primary);border:4px solid var(--ink);left:calc(1330 / 1440 * 100%);top:calc(235 / 600 * 100%);transform:translate(-50%,-50%);pointer-events:none}
+.hero-dot.js{left:0;top:0;transform:none}
+.hero .hl{position:relative;background:none}
+.hero .hl::before{content:"";position:absolute;left:-3px;right:-3px;top:50%;bottom:6%;background:var(--highlight);z-index:-1}
 .hero-head{position:relative;z-index:2;max-width:1120px;margin:0 auto;padding:0 28px 0 96px}
 .hero-note{position:absolute;left:2px;top:-64px;width:92px;font-family:var(--font-hand);color:var(--faded);font-size:19px;line-height:1.12;text-align:right;transform:rotate(-4deg)}
 .hero-note .note-arrow{display:block;width:50px;margin:6px 0 0 auto}
@@ -249,6 +257,8 @@ footer.site .strap{font-family:var(--font-hand);font-size:20px;color:var(--highl
 }
 
 @media(max-width:680px){
+  .hero-line path{stroke-width:7}
+  .hero-dot{width:17px;height:17px;border-width:3px}
   .cat-grid{grid-template-columns:1fr;gap:14px}
   .pack-band{padding:44px 0}
   .skill-grid{grid-template-columns:1fr}
@@ -301,3 +311,32 @@ footer.site .strap{font-family:var(--font-hand);font-size:20px;color:var(--highl
   .cat-card:hover{transform:none;box-shadow:4px 4px 0 var(--ink)}
   .nav-toggle:hover,.nav-toggle:active{transform:none;box-shadow:3px 3px 0 var(--ink)}
 }
+
+/* Hero load sequence, once on load, total ~2.5s:
+   0s      headline fades in (200ms, no movement)
+   0-1.4s  W line draws on like a pen stroke; the dot travels just behind the tip (nav.js)
+   1.4s    dot lands on the final peak with a small pop
+   1.5s    Caveat note writes in, then its arrow draws
+   1.9s    highlighter sweeps across "whole school"
+   2.0s+   register items rise in, 80ms apart
+   All skipped under prefers-reduced-motion: the completed state above shows statically. */
+@media (prefers-reduced-motion: no-preference){
+  #w-rise-path{stroke-dasharray:1;stroke-dashoffset:1;animation:w-draw 1.4s cubic-bezier(.45,.05,.25,1) forwards}
+  .hero h1{animation:fade-in .2s ease-out}
+  .hero-dot:not(.js):not(.landed){opacity:0;animation:dot-land .35s ease-out 1.42s forwards}
+  .hero-dot.landed{animation:dot-pop .32s cubic-bezier(.34,1.56,.64,1) forwards}
+  .hero-note{opacity:0;animation:note-in .4s ease-out 1.5s forwards}
+  .hero-note .note-arrow path{stroke-dasharray:1;stroke-dashoffset:1;animation:w-draw .35s ease-out 1.72s forwards}
+  .hero .hl::before{transform:scaleX(0);transform-origin:left;animation:hl-sweep .35s ease-out 1.9s forwards}
+  .register .wrap span{opacity:0;transform:translateY(8px);animation:rise-in .3s ease-out forwards}
+  .register .wrap span:nth-child(1){animation-delay:2.02s}
+  .register .wrap span:nth-child(2){animation-delay:2.1s}
+  .register .wrap span:nth-child(3){animation-delay:2.18s}
+}
+@keyframes w-draw{to{stroke-dashoffset:0}}
+@keyframes fade-in{from{opacity:0}to{opacity:1}}
+@keyframes dot-land{0%{opacity:0;transform:translate(-50%,-50%) scale(.6)}60%{opacity:1;transform:translate(-50%,-50%) scale(1.1)}100%{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+@keyframes dot-pop{0%{transform:translate(-50%,-50%) scale(1)}55%{transform:translate(-50%,-50%) scale(1.06)}100%{transform:translate(-50%,-50%) scale(1)}}
+@keyframes note-in{from{opacity:0;clip-path:inset(0 100% -20% 0)}to{opacity:1;clip-path:inset(-20% -20% -20% 0)}}
+@keyframes hl-sweep{to{transform:scaleX(1)}}
+@keyframes rise-in{to{opacity:1;transform:translateY(0)}}

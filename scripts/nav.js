@@ -51,3 +51,36 @@ if (enquiry) {
       encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
   });
 }
+
+/* Hero W Rise dot: rides the line as it draws (1.4s, matching the CSS ease),
+   trailing the pen tip by ~40ms, then hands back to CSS for the landing pop.
+   Skipped under reduced motion; the dot then sits statically on the final peak. */
+(function () {
+  var path = document.getElementById('w-rise-path');
+  var dot = document.getElementById('hero-dot');
+  if (!path || !dot) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  dot.classList.add('js');
+  var svg = path.ownerSVGElement;
+  var total = path.getTotalLength();
+  var box = svg.getBoundingClientRect();
+  var DUR = 1400;
+  var ease = function (t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; };
+  var start = null;
+  var frame = function (now) {
+    if (start === null) start = now;
+    var t = Math.min((now - start) / DUR, 1);
+    var trail = Math.min(Math.max((now - start - 40) / DUR, 0), 1);
+    var pt = path.getPointAtLength(ease(trail) * total);
+    dot.style.transform = 'translate(' + (pt.x / 1440 * box.width) + 'px,' +
+      (pt.y / 600 * box.height) + 'px) translate(-50%,-50%)';
+    if (t < 1) {
+      requestAnimationFrame(frame);
+    } else {
+      dot.style.transform = '';
+      dot.classList.remove('js');
+      dot.classList.add('landed');
+    }
+  };
+  requestAnimationFrame(frame);
+})();
