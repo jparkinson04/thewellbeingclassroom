@@ -88,10 +88,6 @@ section.tight{padding-top:0}
 .courses{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
 .course{background:#fff;border:2.5px solid var(--ink);border-radius:20px;box-shadow:5px 5px 0 var(--ink);padding:30px 28px;transition:transform .15s, box-shadow .15s;position:relative}
 .course:hover{transform:translate(-3px,-3px);box-shadow:8px 8px 0 var(--ink)}
-.course .emoji{width:52px;height:52px;border-radius:14px;border:2.5px solid var(--ink);display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:18px}
-.course:nth-child(1) .emoji{background:var(--highlight)}
-.course:nth-child(2) .emoji{background:var(--tint-primary)}
-.course:nth-child(3) .emoji{background:var(--tint-highlight)}
 .course h3{font-size:22px;font-weight:800;margin-bottom:8px}
 .course p{font-size:15px;color:var(--body-soft)}
 .course .sticker{position:absolute;top:-14px;right:18px;background:var(--accent);color:#fff;border:2px solid var(--ink);border-radius:999px;font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:5px 12px;transform:rotate(3deg)}
@@ -126,17 +122,6 @@ section.tight{padding-top:0}
 .book.blue li::before{color:var(--highlight)}
 .book .formats{display:flex;gap:10px;flex-wrap:wrap;margin:4px 0 26px}
 .book .formats span{border:2px solid var(--ink);background:#fff;color:var(--ink);border-radius:999px;padding:5px 14px;font-size:12.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
-
-/* Pricing table */
-.price-table{border:2.5px solid var(--ink);background:#fff;border-radius:20px;box-shadow:6px 6px 0 var(--ink);overflow:hidden;margin-top:8px}
-.price-row{display:grid;grid-template-columns:1.3fr 1fr auto;gap:22px;align-items:center;padding:22px 32px;border-bottom:2px solid var(--rule)}
-.price-row:last-child{border-bottom:0}
-.price-row.head{background:var(--primary);color:#fff;border-bottom:2.5px solid var(--ink);font-family:var(--font-display);font-weight:800;letter-spacing:.04em;font-size:14px;text-transform:uppercase}
-.price-row h3{font-size:18px;font-weight:800}
-.price-row .detail{font-size:14.5px;color:var(--body-soft)}
-.price-row .price{font-family:var(--font-display);font-weight:800;font-size:22px;color:var(--primary);white-space:nowrap}
-.price-note{margin-top:18px;font-size:14.5px;color:var(--body-soft)}
-.price-note .hand{font-size:22px}
 
 /* Testimonials as sticky notes */
 .stickies{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;align-items:start}
@@ -188,7 +173,7 @@ footer.site .strap{font-family:var(--font-hand);font-size:20px;color:var(--highl
   .nav-inner{padding-left:52px}
   .aud{grid-template-columns:1fr}
   .courses,.menu-cols,.stickies{grid-template-columns:1fr}
-  .rrow,.price-row{grid-template-columns:1fr;gap:6px}
+  .rrow{grid-template-columns:1fr;gap:6px}
   .about-grid{grid-template-columns:1fr;gap:40px}
   .photo-card{max-width:320px}
   /* Margin gutter is too narrow for the note here — sit it above the headline */
