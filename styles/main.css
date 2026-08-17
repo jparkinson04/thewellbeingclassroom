@@ -41,10 +41,9 @@ nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb, var(--paper) 
 .nav-toggle:active{transform:translate(1px,1px);box-shadow:1px 1px 0 var(--ink)}
 .nav-toggle[aria-expanded="true"]{background:var(--highlight)}
 
-/* Hero — "the term's front page": full-width typographic poster
-   hugging the margin rule, with a band of papers crossing the fold */
+/* Hero — headline beside a taped photo frame on ruled paper */
 .hero{
-  padding:64px 0 0;position:relative;
+  padding:64px 0 84px;position:relative;
   background:
     radial-gradient(circle at 86% 10%, var(--glow-a), transparent 36%),
     radial-gradient(circle at 4% 92%, var(--glow-b), transparent 42%);
@@ -52,31 +51,22 @@ nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb, var(--paper) 
 .hero-head{position:relative;max-width:1120px;margin:0 auto;padding:26px 28px 0 96px}
 .hero-note{position:absolute;left:2px;top:2px;width:92px;font-family:var(--font-hand);color:var(--faded);font-size:19px;line-height:1.12;text-align:right;transform:rotate(-4deg)}
 .hero-note .note-arrow{display:block;width:50px;margin:6px 0 0 auto}
-.hero h1{font-size:clamp(42px,5.6vw,76px);font-weight:800;letter-spacing:-.025em;line-height:1.04}
+.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(38px,4.6vw,60px);font-weight:800;letter-spacing:-.02em;line-height:1.05}
 .hero-sub{margin-top:26px;font-size:clamp(17px,1.55vw,21px);color:var(--body);max-width:58ch}
 .hero-ctas{display:flex;gap:15px;flex-wrap:wrap;margin-top:30px}
 
-/* Papers on the desk — overlapping band that breaks the hero's bottom edge */
-.desk{position:relative;z-index:5;display:flex;align-items:flex-end;justify-content:center;max-width:1180px;margin:64px auto -48px;padding:22px 32px 0 72px}
-.paper{display:block;width:32%;background:#fff;border:2.5px solid var(--ink);border-radius:18px;box-shadow:6px 6px 0 var(--ink);padding:24px;position:relative;text-decoration:none;color:inherit;transform:rotate(var(--rot,0deg)) translateY(var(--lift,0px));transition:transform .18s,box-shadow .18s}
-.paper+.paper{margin-left:-56px}
-.paper::before{content:"";position:absolute;top:-11px;left:50%;transform:translateX(-50%) rotate(-2deg);width:78px;height:20px;background:var(--tape)}
-.paper h3{font-size:19px;font-weight:800;margin-bottom:6px}
-.paper p{font-size:14px;color:var(--body-soft)}
-.paper .pill{display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;background:var(--tint-neutral);border:2px solid var(--ink);border-radius:999px;padding:3px 10px;margin-bottom:10px}
-.p1{--rot:-3deg;background:var(--highlight);z-index:1}
-.p1 .pill{background:#fff}
-.p2{--rot:2.5deg;--lift:-16px;z-index:3}
-.p3{--rot:-1.5deg;background:var(--primary);z-index:2}
-.p3 h3{color:#fff}
-.p3 p{color:var(--text-on-primary)}
-.p3 .pill{background:var(--primary-dark);color:#fff;border-color:#fff}
-.p3::before{background:var(--glow-a)}
-.paper:hover,.paper:focus-visible{transform:rotate(0deg) translateY(calc(var(--lift,0px) - 4px));box-shadow:8px 8px 0 var(--ink);z-index:6}
-.paper:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+/* Hero photo — taped, slightly rotated frame; placeholder until a real photo arrives */
+.hero-photo{margin:0;background:#fff;border:2.5px solid var(--ink);border-radius:18px;box-shadow:6px 6px 0 var(--ink);padding:16px 16px 20px;position:relative;transform:rotate(1.8deg)}
+.hero-photo::before{content:"";position:absolute;top:-11px;left:50%;transform:translateX(-50%) rotate(-2deg);width:78px;height:20px;background:var(--tape)}
+.hero-photo img{display:block;width:100%;border-radius:10px}
+.photo-well{aspect-ratio:4/3;border-radius:10px;border:2px dashed var(--rule);background:var(--tint-neutral);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;padding:24px}
+.photo-well svg{width:60px;height:60px}
+.photo-well .hand{font-size:25px}
+.photo-soon{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--faded)}
 
-/* Register strip (home only) — extra top padding clears the desk band overlap */
-.register{border-top:2.5px solid var(--ink);border-bottom:2.5px solid var(--ink);background:var(--ink);color:#fff;padding:72px 0 17px;position:relative;z-index:1}
+/* Register strip (home only) */
+.register{border-top:2.5px solid var(--ink);border-bottom:2.5px solid var(--ink);background:var(--ink);color:#fff;padding:17px 0;position:relative;z-index:1}
 .register .wrap{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;font-family:var(--font-display);font-weight:600;font-size:14px;letter-spacing:.05em}
 .register span b{color:var(--highlight)}
 
@@ -183,8 +173,7 @@ footer.site .logo svg.mark{width:28px;height:28px}
 footer.site .strap{font-family:var(--font-hand);font-size:20px;color:var(--highlight)}
 
 @media(max-width:1024px){
-  .hero h1{font-size:clamp(40px,6vw,66px)}
-  .paper+.paper{margin-left:-40px}
+  .hero-grid{gap:36px}
 }
 
 @media(max-width:920px){
@@ -198,6 +187,8 @@ footer.site .strap{font-family:var(--font-hand);font-size:20px;color:var(--highl
   .hero-head{padding:0 28px 0 52px}
   .hero-note{position:static;width:auto;max-width:200px;text-align:left;transform:rotate(-3deg);margin:0 0 10px 4px}
   .hero-note .note-arrow{display:inline-block;width:40px;margin:0 0 -12px 8px}
+  .hero-grid{grid-template-columns:1fr;gap:44px}
+  .hero-photo{max-width:440px;margin:0 auto;width:100%}
 
   /* Mobile nav: toggle button + dropdown notepad panel */
   .nav-toggle{display:inline-flex}
@@ -214,22 +205,10 @@ footer.site .strap{font-family:var(--font-hand);font-size:20px;color:var(--highl
   .nav-links .btn{text-align:center;margin-top:6px}
 }
 
-@media(max-width:680px){
-  /* Papers become a scroll-snap row, still nudging past the fold */
-  .desk{justify-content:flex-start;overflow-x:auto;scroll-snap-type:x mandatory;gap:18px;margin:48px 0 -48px;padding:22px 24px 8px 52px;-webkit-overflow-scrolling:touch}
-  .paper{flex:0 0 76%;width:auto;max-width:320px;scroll-snap-align:center}
-  .paper+.paper{margin-left:0}
-  .p1{--rot:-1deg}
-  .p2{--rot:1deg;--lift:0px}
-  .p3{--rot:-1deg}
-}
-
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .btn,.course,.nav-toggle,.paper{transition:none}
+  .btn,.course,.nav-toggle{transition:none}
   .btn:hover,.btn:active{transform:none;box-shadow:4px 4px 0 var(--ink)}
   .course:hover{transform:none;box-shadow:5px 5px 0 var(--ink)}
-  .paper:hover,.paper:focus-visible{transform:rotate(var(--rot,0deg)) translateY(var(--lift,0px));box-shadow:6px 6px 0 var(--ink)}
-  .paper:hover h3,.paper:focus-visible h3{text-decoration:underline}
   .nav-toggle:hover,.nav-toggle:active{transform:none;box-shadow:3px 3px 0 var(--ink)}
 }
