@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact &amp; Booking | The Wellbeing Classroom</title>
+<title>Contact &amp; Enquiries | The Wellbeing Classroom</title>
 <meta name="description" content="Book wellbeing workshops, DBT skills groups, INSET training or parent sessions for your school. The Wellbeing Classroom serves schools across Yorkshire and beyond.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Caveat:wght@600&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -30,7 +30,7 @@
       <a href="inset-training.html">INSET</a>
       <a href="parent-workshops.html">Parents</a>
       <a href="about.html">About Clare</a>
-      <a href="contact.html" class="btn sun" style="padding:10px 20px" aria-current="page">Book a call</a>
+      <a href="contact.html" class="btn sun" style="padding:10px 20px" aria-current="page">Make an enquiry</a>
     </div>
   </div>
 </nav>
@@ -39,12 +39,12 @@
   <div class="wrap">
     <h1>Put wellbeing on the timetable.</h1>
     <p>Tell us what your school community needs this year and we'll suggest the right workshops, training or programme, tailored to your pupils, staff and parents.</p>
-    <a href="mailto:hello@thewellbeingclassroom.co.uk" class="btn">Email The Wellbeing Classroom</a>
+    <a href="mailto:hello@thewellbeingclassroom.uk" class="btn">Email The Wellbeing Classroom</a>
     <div class="contact-line">
       <!-- PLACEHOLDERS: confirm email, add phone number and final domain -->
-      <a href="mailto:hello@thewellbeingclassroom.co.uk">hello@thewellbeingclassroom.co.uk</a>
+      <a href="mailto:hello@thewellbeingclassroom.uk">hello@thewellbeingclassroom.uk</a>
       <span>Phone number to add</span>
-      <span>www.thewellbeingclassroom.co.uk</span>
+      <span>www.thewellbeingclassroom.uk</span>
     </div>
     <span class="hand">See you in the classroom!</span>
   </div>
@@ -53,10 +53,48 @@
 <section class="tight">
   <div class="wrap">
     <div class="sec-head">
-      <span class="eyebrow">Helpful to mention</span>
-      <h2>What to include in your enquiry.</h2>
-      <p>A line or two on who the session is for (pupils, staff or parents), the topics you have in mind, and rough timings, and we'll take it from there. Browse the <a href="workshops.html">workshop menu</a> or <a href="inset-training.html">INSET sessions</a> if you'd like a starting point.</p>
+      <span class="eyebrow">Make an enquiry</span>
+      <h2>Tell us what your school needs.</h2>
+      <p>A line or two on who the session is for, the topics you have in mind and rough timings is plenty. Sending opens a ready-written email in your mail app.</p>
     </div>
+    <!-- PLACEHOLDER FORM DELIVERY: currently composes an email to the placeholder address via
+         the visitor's own mail app (see scripts/nav.js). When Clare picks a form service
+         (e.g. Formspree), set that service's URL as the form action and remove the JS handler. -->
+    <form class="enquiry" id="enquiry-form">
+      <div class="field-grid">
+        <div class="field">
+          <label for="enq-name">Your name</label>
+          <input id="enq-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="enq-school">School or trust</label>
+          <input id="enq-school" name="school" type="text" autocomplete="organization">
+        </div>
+        <div class="field">
+          <label for="enq-email">Email address</label>
+          <input id="enq-email" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="enq-phone">Phone <span class="optional">(optional)</span></label>
+          <input id="enq-phone" name="phone" type="tel" autocomplete="tel">
+        </div>
+      </div>
+      <div class="field">
+        <label for="enq-interest">What are you interested in?</label>
+        <select id="enq-interest" name="interest">
+          <option>Pupil workshops</option>
+          <option>DBT skills groups</option>
+          <option>INSET staff training</option>
+          <option>Parent workshops</option>
+          <option>Not sure yet</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="enq-message">Your message</label>
+        <textarea id="enq-message" name="message" required></textarea>
+      </div>
+      <button type="submit" class="btn">Send enquiry</button>
+    </form>
   </div>
 </section>
 

@@ -35,3 +35,19 @@ if (window.matchMedia('(max-width: 680px)').matches) {
     if (i > 0) d.removeAttribute('open');
   });
 }
+
+/* Enquiry form: composes a ready-written email in the visitor's mail app.
+   PLACEHOLDER address; replace with a form service action when confirmed. */
+var enquiry = document.getElementById('enquiry-form');
+if (enquiry) {
+  enquiry.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var v = function (n) { return (enquiry.elements[n].value || '').trim(); };
+    var subject = 'Enquiry from ' + v('name') + (v('school') ? ', ' + v('school') : '');
+    var body = ['Name: ' + v('name'), 'School or trust: ' + v('school'),
+      'Email: ' + v('email'), 'Phone: ' + v('phone'),
+      'Interested in: ' + v('interest'), '', v('message')].join('\n');
+    window.location.href = 'mailto:hello@thewellbeingclassroom.uk?subject=' +
+      encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  });
+}

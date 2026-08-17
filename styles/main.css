@@ -195,6 +195,17 @@ section.tight{padding-top:0}
 .rrow .comment{font-size:15.5px;color:var(--body-soft)}
 .rrow .mark{font-family:var(--font-hand);font-size:30px;color:var(--accent);font-weight:600}
 
+/* Enquiry form */
+.enquiry{max-width:760px}
+.field-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 22px}
+.field{display:flex;flex-direction:column;gap:7px;margin-bottom:20px}
+.field label{font-weight:800;font-size:14.5px}
+.field .optional{font-weight:600;color:var(--faded)}
+.field input,.field select,.field textarea{font-family:var(--font-body);font-size:15.5px;color:var(--ink);background:#fff;border:2.5px solid var(--ink);border-radius:12px;padding:12px 14px}
+.field select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--ink) 50%),linear-gradient(135deg,var(--ink) 50%,transparent 50%);background-position:calc(100% - 21px) 50%,calc(100% - 15px) 50%;background-size:6px 6px;background-repeat:no-repeat}
+.field textarea{min-height:150px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:3px solid var(--highlight);outline-offset:2px}
+
 /* CTA */
 .cta{
   text-align:center;border-top:2.5px solid var(--ink);
@@ -259,6 +270,8 @@ footer.site .strap{font-family:var(--font-hand);font-size:20px;color:var(--highl
   .pin-note{font-size:13px;padding:14px 12px 12px}
   .topic-wall{grid-template-columns:1fr 1fr;gap:20px}
   .topic-note{font-size:20px;padding:18px 15px}
+  .field-grid{grid-template-columns:1fr}
+  .enquiry .btn{width:100%;text-align:center}
   .pack-grid{grid-template-columns:1fr}
   .pack-items span{width:100%}
   .cat-group{margin-top:26px;border:2.5px solid var(--ink);border-radius:16px;background:#fff;box-shadow:4px 4px 0 var(--ink);padding:16px 18px}
