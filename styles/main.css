@@ -125,8 +125,22 @@ section.tight{padding-top:0}
 .book li{padding:6px 0;font-weight:700;font-size:15px}
 .book li::before{content:"★";color:var(--accent);margin-right:10px}
 .book.blue li::before{color:var(--highlight)}
-.book .formats{display:flex;gap:10px;flex-wrap:wrap;margin:4px 0 26px}
-.book .formats span{border:2px solid var(--ink);background:#fff;color:var(--ink);border-radius:999px;padding:5px 14px;font-size:12.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
+.formats{display:flex;gap:10px;flex-wrap:wrap}
+.book .formats{margin:4px 0 26px}
+.formats span{border:2px solid var(--ink);background:#fff;color:var(--ink);border-radius:999px;padding:5px 14px;font-size:12.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
+
+/* DBT page: open layout, chips and small skill cards instead of panels */
+.dbt-who h2,.dbt-skills h2{font-size:23px;font-weight:800;margin-bottom:10px}
+.dbt-who p,.dbt-skills>p{color:var(--body);font-size:16.5px;max-width:62ch}
+.chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+.chips span{border:2.5px solid var(--ink);background:#fff;border-radius:999px;padding:9px 18px;font-weight:700;font-size:14.5px;box-shadow:3px 3px 0 var(--ink)}
+.dbt-skills{margin-top:52px}
+.skill-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:24px}
+.skill{background:#fff;border:2.5px solid var(--ink);border-radius:16px;box-shadow:4px 4px 0 var(--ink);padding:20px}
+.skill .num{font-family:var(--font-hand);font-size:32px;line-height:1;color:var(--primary);display:block}
+.skill h3{font-size:16.5px;font-weight:800;margin:8px 0 6px}
+.skill p{font-size:13.5px;color:var(--body-soft);line-height:1.5}
+.dbt-book{margin-top:48px;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
 
 /* Testimonials as sticky notes */
 .stickies{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;align-items:start}
@@ -171,6 +185,7 @@ footer.site .strap{font-family:var(--font-hand);font-size:20px;color:var(--highl
 @media(max-width:1024px){
   .hero{padding:90px 0 100px}
   .cat-grid{grid-template-columns:repeat(2,1fr)}
+  .skill-grid{grid-template-columns:repeat(2,1fr)}
 }
 
 @media(max-width:920px){
@@ -205,6 +220,8 @@ footer.site .strap{font-family:var(--font-hand);font-size:20px;color:var(--highl
 @media(max-width:680px){
   .cat-grid{grid-template-columns:1fr;gap:14px}
   .pack-band{padding:44px 0}
+  .skill-grid{grid-template-columns:1fr}
+  .dbt-book .btn{width:100%;text-align:center}
   .pack-grid{grid-template-columns:1fr}
   .pack-items span{width:100%}
   .cat-group{margin-top:26px;border:2.5px solid var(--ink);border-radius:16px;background:#fff;box-shadow:4px 4px 0 var(--ink);padding:16px 18px}
