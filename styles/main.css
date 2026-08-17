@@ -63,15 +63,14 @@ nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb, var(--paper) 
    load animation lives at the bottom of this file under prefers-reduced-motion:
    no-preference (reduced motion just shows this completed state). */
 .hero-line{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;overflow:visible}
-.hero-dot{position:absolute;z-index:1;width:22px;height:22px;border-radius:50%;background:var(--primary);border:4px solid var(--ink);left:calc(1330 / 1440 * 100%);top:calc(235 / 600 * 100%);transform:translate(-50%,-50%);pointer-events:none}
+.hero-dot{position:absolute;z-index:1;width:22px;height:22px;border-radius:50%;background:var(--primary);border:4px solid var(--ink);left:calc(1060 / 1440 * 100%);top:calc(245 / 600 * 100%);transform:translate(-50%,-50%);pointer-events:none}
 .hero-dot.js{left:0;top:0;transform:none}
-.hero .hl{position:relative;background:none}
+.hero .hl{position:relative;background:none;white-space:nowrap}
 .hero .hl::before{content:"";position:absolute;left:-3px;right:-3px;top:50%;bottom:6%;background:var(--highlight);z-index:-1}
 .hero-head{position:relative;z-index:2;max-width:1120px;margin:0 auto;padding:0 28px 0 96px}
 .hero-note{position:absolute;left:2px;top:-64px;width:92px;font-family:var(--font-hand);color:var(--faded);font-size:19px;line-height:1.12;text-align:right;transform:rotate(-4deg)}
 .hero-note .note-arrow{display:block;width:50px;margin:6px 0 0 auto}
 .hero h1{font-size:clamp(38px,4.8vw,64px);font-weight:800;letter-spacing:-.02em;line-height:1.05;max-width:20ch}
-.hero-sub{margin-top:26px;font-size:clamp(17px,1.55vw,21px);color:var(--body);max-width:52ch}
 .hero-ctas{display:flex;gap:15px;flex-wrap:wrap;margin-top:30px}
 
 /* Register strip (home only) */
