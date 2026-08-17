@@ -115,6 +115,11 @@ section.tight{padding-top:0}
 .cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .cat-card{background:#fff;border:2.5px solid var(--ink);border-radius:16px;box-shadow:4px 4px 0 var(--ink);padding:20px 22px;position:relative;transition:transform .15s, box-shadow .15s}
 .cat-card:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+.cat-icon{width:42px;height:42px;border:2px solid var(--ink);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;background:var(--tint-neutral)}
+.cat-icon svg{width:23px;height:23px;stroke:var(--ink);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;fill:none}
+.cat-group:nth-of-type(1) .cat-icon{background:var(--tint-highlight)}
+.cat-group:nth-of-type(2) .cat-icon{background:var(--tint-primary)}
+.cat-group:nth-of-type(3) .cat-icon{background:var(--note)}
 .cat-card h3{font-size:17.5px;font-weight:800;margin-bottom:6px}
 .cat-card p{font-size:13.5px;color:var(--body-soft);line-height:1.55}
 .cat-card .sticker{position:absolute;top:-12px;right:14px;background:var(--accent);color:#fff;border:2px solid var(--ink);border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;transform:rotate(3deg)}
