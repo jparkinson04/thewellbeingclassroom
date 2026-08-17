@@ -101,20 +101,6 @@ section.tight{padding-top:0}
 .includes{margin-top:32px;padding-top:24px;border-top:2px dashed var(--rule);display:flex;gap:16px 26px;flex-wrap:wrap;font-size:14.5px;font-weight:700}
 .includes span::before{content:"✓";color:#fff;background:var(--accent);display:inline-flex;width:19px;height:19px;border-radius:50%;align-items:center;justify-content:center;font-size:10.5px;margin-right:8px;vertical-align:middle}
 
-/* Bespoke / highlight dashed box */
-.bespoke{margin-top:26px;border:2.5px dashed var(--ink);border-radius:20px;padding:28px 32px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;background:color-mix(in srgb, #fff 70%, transparent)}
-.bespoke h3{font-size:21px;font-weight:800;margin-bottom:6px}
-.bespoke p{font-size:15px;color:var(--body-soft);max-width:64ch}
-
-/* Resource pack band: the one full-width colour section, breaks the white-box rhythm */
-.pack-band{background:var(--highlight);border-top:2.5px solid var(--ink);padding:64px 0;position:relative;z-index:1}
-.pack-band h2{font-size:clamp(26px,3.4vw,38px);font-weight:800;margin-bottom:10px;max-width:26ch}
-.pack-band>.wrap>p{color:var(--ink);font-size:17px;max-width:56ch}
-.pack-items{display:flex;flex-wrap:wrap;gap:14px;margin:28px 0 22px}
-.pack-items span{background:#fff;border:2.5px solid var(--ink);border-radius:999px;box-shadow:3px 3px 0 var(--ink);padding:10px 18px;font-weight:700;font-size:14.5px}
-.pack-items span::before{content:"\2713";color:#fff;background:var(--accent);display:inline-flex;width:19px;height:19px;border-radius:50%;align-items:center;justify-content:center;font-size:10.5px;margin-right:9px;vertical-align:middle}
-.pack-band .hand{color:var(--ink);font-size:24px;display:inline-block;transform:rotate(-1.2deg)}
-
 /* Audience panels */
 .aud{display:grid;grid-template-columns:1fr 1fr;gap:28px}
 .book{border:2.5px solid var(--ink);border-radius:22px;padding:44px 40px;background:#fff;position:relative;box-shadow:6px 6px 0 var(--ink)}
