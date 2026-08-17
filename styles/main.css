@@ -194,6 +194,30 @@ footer.site .strap{font-family:var(--font-hand);font-size:20px;color:var(--highl
 
 @media(max-width:680px){
   .cat-grid{grid-template-columns:1fr}
+  section{padding:64px 0}
+  section.tight{padding-top:0}
+  .hero{padding:56px 0 72px}
+  .hero-ctas .btn{width:100%;text-align:center}
+  .book{padding:32px 26px}
+  .report .rhead{padding:16px 22px}
+  .report .rbody{padding:26px 22px}
+  .bespoke{padding:24px 22px}
+  .cta .btn{width:100%;text-align:center}
+  footer.site .wrap{flex-direction:column;align-items:flex-start;gap:10px}
+}
+
+@media(max-width:480px){
+  .wrap{padding:0 22px 0 44px}
+  .hero-head{padding:0 22px 0 44px}
+  .nav-inner{padding:12px 16px 12px 20px}
+  .logo{font-size:17px;gap:8px}
+  .logo svg.mark{width:29px;height:29px}
+  .nav-toggle{padding:7px 12px;font-size:12.5px}
+  .hero h1{font-size:34px}
+  .sec-head h1{font-size:31px}
+  .sec-head h2{font-size:27px}
+  .cta h1,.cta h2{font-size:29px}
+  .book h3{font-size:22px}
 }
 
 @media(prefers-reduced-motion:reduce){
