@@ -201,6 +201,7 @@ section.tight{padding-top:0}
 .rrow .subject{font-family:var(--font-display);font-weight:800;color:var(--primary);font-size:15px}
 .rrow .comment{font-size:15.5px;color:var(--body-soft)}
 .rrow .mark{font-family:var(--font-hand);font-size:30px;color:var(--accent);font-weight:600}
+.rrow .mark svg{width:32px;height:32px;stroke:var(--accent);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;display:block}
 
 /* Contact page: intro + form side by side, no scrolling to reach the form */
 .contact-top{
