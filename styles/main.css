@@ -129,18 +129,12 @@ section.tight{padding-top:0}
 .book .formats{margin:4px 0 26px}
 .formats span{border:2px solid var(--ink);background:#fff;color:var(--ink);border-radius:999px;padding:5px 14px;font-size:12.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
 
-/* DBT page: open layout, chips and small skill cards instead of panels */
-.dbt-who h2,.dbt-skills h2{font-size:23px;font-weight:800;margin-bottom:10px}
-.dbt-who p,.dbt-skills>p{color:var(--body);font-size:16.5px;max-width:62ch}
-.chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
-.chips span{border:2.5px solid var(--ink);background:#fff;border-radius:999px;padding:9px 18px;font-weight:700;font-size:14.5px;box-shadow:3px 3px 0 var(--ink)}
-.dbt-skills{margin-top:52px}
+/* Skill cards (DBT) */
 .skill-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:24px}
 .skill{background:#fff;border:2.5px solid var(--ink);border-radius:16px;box-shadow:4px 4px 0 var(--ink);padding:20px}
 .skill .num{font-family:var(--font-hand);font-size:32px;line-height:1;color:var(--primary);display:block}
 .skill h3{font-size:16.5px;font-weight:800;margin:8px 0 6px}
 .skill p{font-size:13.5px;color:var(--body-soft);line-height:1.5}
-.dbt-book{margin-top:48px;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
 
 /* Shared sub-section heads + format/CTA rows */
 .subsec{margin-top:52px}
@@ -148,8 +142,13 @@ section.tight{padding-top:0}
 .subsec>p{color:var(--body);font-size:16.5px;max-width:62ch}
 .format-row{margin-top:26px;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
 
-/* INSET staffroom noticeboard: dark panel with pinned paper notes */
+/* Topic boards: one per audience page, same layout, page-identity colour
+   (INSET dark ink, DBT pink, Parents green) with pinned paper notes */
 .board{background:var(--ink);border-radius:22px;padding:36px 38px 40px;position:relative}
+.board.pink{background:var(--primary)}
+.board.green{background:var(--accent)}
+.board.pink .board-head .hand,.board.green .board-head .hand{color:#fff}
+.board-lead{color:#fff;font-size:18.5px;font-weight:700;margin:-10px 0 24px}
 .board-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:26px}
 .board-head h2{color:#fff;font-size:24px;margin:0}
 .board-head .hand{color:var(--highlight);font-size:23px;display:inline-block;transform:rotate(-1.5deg)}
@@ -162,17 +161,6 @@ section.tight{padding-top:0}
 .pin-note:nth-child(3n+1){transform:rotate(-1.3deg)}
 .pin-note:nth-child(3n+2){transform:rotate(1.1deg)}
 .pin-note:nth-child(3n){transform:rotate(-.6deg)}
-
-/* Parents topic wall: sticky notes like a parents'-evening flipchart */
-.topic-wall{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:26px;margin-top:28px}
-.topic-note{display:block;background:var(--note);box-shadow:0 10px 18px rgba(0,0,0,.15);padding:24px 20px;font-family:var(--font-hand);font-size:23px;line-height:1.22;color:var(--ink);position:relative}
-.topic-note::before{content:"";position:absolute;top:-10px;left:50%;transform:translateX(-50%) rotate(-2deg);width:64px;height:18px;background:var(--tape)}
-.topic-note:nth-child(3n+2){background:var(--tint-primary)}
-.topic-note:nth-child(3n){background:var(--tint-highlight)}
-.topic-note:nth-child(4n+1){transform:rotate(-1.6deg)}
-.topic-note:nth-child(4n+2){transform:rotate(1.2deg)}
-.topic-note:nth-child(4n+3){transform:rotate(-.7deg)}
-.topic-note:nth-child(4n){transform:rotate(1.5deg)}
 
 /* Testimonials as sticky notes */
 .stickies{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;align-items:start}
@@ -264,12 +252,10 @@ footer.site .strap{font-family:var(--font-hand);font-size:20px;color:var(--highl
   .cat-grid{grid-template-columns:1fr;gap:14px}
   .pack-band{padding:44px 0}
   .skill-grid{grid-template-columns:1fr}
-  .dbt-book .btn,.format-row .btn{width:100%;text-align:center}
+  .format-row .btn{width:100%;text-align:center}
   .board{padding:26px 20px 30px}
   .board-grid{grid-template-columns:1fr 1fr;gap:14px}
   .pin-note{font-size:13px;padding:14px 12px 12px}
-  .topic-wall{grid-template-columns:1fr 1fr;gap:20px}
-  .topic-note{font-size:20px;padding:18px 15px}
   .field-grid{grid-template-columns:1fr}
   .enquiry .btn{width:100%;text-align:center}
   .pack-grid{grid-template-columns:1fr}
