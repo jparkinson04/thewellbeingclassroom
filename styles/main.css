@@ -47,15 +47,15 @@ nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb, var(--paper) 
 .hero{
   position:relative;overflow:hidden;padding:110px 0 120px;
   background:
-    radial-gradient(circle at 80% 20%, var(--glow-a), transparent 45%),
-    radial-gradient(circle at 10% 90%, var(--glow-b), transparent 50%),
-    var(--tint-neutral);
+    radial-gradient(circle at 86% 10%, var(--glow-a), transparent 36%),
+    radial-gradient(circle at 4% 92%, var(--glow-b), transparent 42%);
 }
 .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
-.hero-scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,
+.hero-scrim{display:none;position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,
   color-mix(in srgb, var(--paper) 88%, transparent) 0%,
   color-mix(in srgb, var(--paper) 72%, transparent) 52%,
   color-mix(in srgb, var(--paper) 30%, transparent) 100%)}
+.hero-bg ~ .hero-scrim{display:block} /* scrim activates only once the photo img exists */
 .hero-head{position:relative;z-index:2;max-width:1120px;margin:0 auto;padding:0 28px 0 96px}
 .hero-note{position:absolute;left:2px;top:-64px;width:92px;font-family:var(--font-hand);color:var(--faded);font-size:19px;line-height:1.12;text-align:right;transform:rotate(-4deg)}
 .hero-note .note-arrow{display:block;width:50px;margin:6px 0 0 auto}
