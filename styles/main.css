@@ -154,8 +154,10 @@ section.tight{padding-top:0}
    (INSET dark ink, DBT pink, Parents green) with pinned paper notes */
 .board{background:var(--ink);border-radius:22px;padding:36px 38px 40px;position:relative}
 .board.pink{background:var(--primary)}
-.board.green{background:var(--accent)}
-.board.pink .board-head .hand,.board.green .board-head .hand{color:#fff}
+.board.green{background:var(--highlight)}
+.board.green .board-head h2{color:var(--ink)}
+.board.pink .board-head .hand{color:#fff}
+.board.green .board-head .hand{color:var(--ink)}
 .board-lead{color:#fff;font-size:18.5px;font-weight:700;margin:-10px 0 24px}
 .board-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:26px}
 .board-head h2{color:#fff;font-size:24px;margin:0}
@@ -166,6 +168,7 @@ section.tight{padding-top:0}
 .pin-note:nth-child(4n+2){background:#fff}
 .pin-note:nth-child(4n+3){background:var(--tint-primary)}
 .pin-note:nth-child(4n){background:var(--tint-highlight)}
+.board.green .pin-note:nth-child(4n){background:var(--tint-neutral)}
 .pin-note:nth-child(3n+1){transform:rotate(-1.3deg)}
 .pin-note:nth-child(3n+2){transform:rotate(1.1deg)}
 .pin-note:nth-child(3n){transform:rotate(-.6deg)}
@@ -190,6 +193,14 @@ section.tight{padding-top:0}
 .rrow .subject{font-family:var(--font-display);font-weight:800;color:var(--primary);font-size:15px}
 .rrow .comment{font-size:15.5px;color:var(--body-soft)}
 .rrow .mark{font-family:var(--font-hand);font-size:30px;color:var(--accent);font-weight:600}
+
+/* Contact page: intro + form side by side, no scrolling to reach the form */
+.contact-top{padding:56px 0 88px}
+.contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:26px 64px;align-items:start}
+.contact-grid .sec-head{margin-bottom:0}
+.contact-details{display:flex;flex-direction:column;gap:8px;margin:24px 0;font-weight:700;font-size:15.5px}
+.contact-details a{color:var(--primary);text-decoration:none;border-bottom:2px solid var(--primary);width:fit-content}
+.form-note{margin-top:12px;font-size:13.5px;color:var(--faded);font-weight:600}
 
 /* Enquiry form */
 .enquiry{max-width:760px}
@@ -266,6 +277,8 @@ footer.site .strap{font-family:var(--font-hand);font-size:20px;color:var(--highl
   .pin-note{font-size:13px;padding:14px 12px 12px}
   .field-grid{grid-template-columns:1fr}
   .enquiry .btn{width:100%;text-align:center}
+  .contact-grid{grid-template-columns:1fr}
+  .contact-top{padding:40px 0 64px}
   .pack-grid{grid-template-columns:1fr}
   .pack-items span{width:100%}
   .cat-group{margin-top:26px;border:2.5px solid var(--ink);border-radius:16px;background:#fff;box-shadow:4px 4px 0 var(--ink);padding:16px 18px}

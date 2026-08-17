@@ -35,66 +35,61 @@
   </div>
 </nav>
 
-<section class="cta">
+<section class="contact-top">
   <div class="wrap">
-    <h1>Put wellbeing on the timetable.</h1>
-    <p>Tell us what your school community needs this year and we'll suggest the right workshops, training or programme, tailored to your pupils, staff and parents.</p>
-    <a href="mailto:hello@thewellbeingclassroom.uk" class="btn">Email The Wellbeing Classroom</a>
-    <div class="contact-line">
-      <!-- PLACEHOLDERS: confirm email, add phone number and final domain -->
-      <a href="mailto:hello@thewellbeingclassroom.uk">hello@thewellbeingclassroom.uk</a>
-      <span>Phone number to add</span>
-      <span>www.thewellbeingclassroom.uk</span>
+    <div class="contact-grid">
+      <div class="sec-head">
+        <span class="eyebrow">Make an enquiry</span>
+        <h1>Put wellbeing on the timetable.</h1>
+        <p>Tell us what your school community needs and we'll suggest the right workshops, training or programme, tailored to your pupils, staff and parents.</p>
+        <div class="contact-details">
+          <!-- PLACEHOLDERS: confirm email, add phone number and final domain -->
+          <a href="mailto:hello@thewellbeingclassroom.uk">hello@thewellbeingclassroom.uk</a>
+          <span>Phone number to add</span>
+          <span>www.thewellbeingclassroom.uk</span>
+        </div>
+        <span class="hand">See you in the classroom!</span>
+      </div>
+      <!-- PLACEHOLDER FORM DELIVERY: currently composes an email to the placeholder address via
+           the visitor's own mail app (see scripts/nav.js). When Clare picks a form service
+           (e.g. Formspree), set that service's URL as the form action and remove the JS handler. -->
+      <form class="enquiry" id="enquiry-form">
+        <div class="field-grid">
+          <div class="field">
+            <label for="enq-name">Your name</label>
+            <input id="enq-name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="enq-school">School or trust</label>
+            <input id="enq-school" name="school" type="text" autocomplete="organization">
+          </div>
+          <div class="field">
+            <label for="enq-email">Email address</label>
+            <input id="enq-email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="enq-phone">Phone <span class="optional">(optional)</span></label>
+            <input id="enq-phone" name="phone" type="tel" autocomplete="tel">
+          </div>
+        </div>
+        <div class="field">
+          <label for="enq-interest">What are you interested in?</label>
+          <select id="enq-interest" name="interest">
+            <option>Pupil workshops</option>
+            <option>DBT skills groups</option>
+            <option>INSET staff training</option>
+            <option>Parent workshops</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="enq-message">Your message</label>
+          <textarea id="enq-message" name="message" required></textarea>
+        </div>
+        <button type="submit" class="btn">Send enquiry</button>
+        <p class="form-note">Sending opens a ready-written email in your mail app.</p>
+      </form>
     </div>
-    <span class="hand">See you in the classroom!</span>
-  </div>
-</section>
-
-<section class="tight">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow">Make an enquiry</span>
-      <h2>Tell us what your school needs.</h2>
-      <p>A line or two on who the session is for, the topics you have in mind and rough timings is plenty. Sending opens a ready-written email in your mail app.</p>
-    </div>
-    <!-- PLACEHOLDER FORM DELIVERY: currently composes an email to the placeholder address via
-         the visitor's own mail app (see scripts/nav.js). When Clare picks a form service
-         (e.g. Formspree), set that service's URL as the form action and remove the JS handler. -->
-    <form class="enquiry" id="enquiry-form">
-      <div class="field-grid">
-        <div class="field">
-          <label for="enq-name">Your name</label>
-          <input id="enq-name" name="name" type="text" autocomplete="name" required>
-        </div>
-        <div class="field">
-          <label for="enq-school">School or trust</label>
-          <input id="enq-school" name="school" type="text" autocomplete="organization">
-        </div>
-        <div class="field">
-          <label for="enq-email">Email address</label>
-          <input id="enq-email" name="email" type="email" autocomplete="email" required>
-        </div>
-        <div class="field">
-          <label for="enq-phone">Phone <span class="optional">(optional)</span></label>
-          <input id="enq-phone" name="phone" type="tel" autocomplete="tel">
-        </div>
-      </div>
-      <div class="field">
-        <label for="enq-interest">What are you interested in?</label>
-        <select id="enq-interest" name="interest">
-          <option>Pupil workshops</option>
-          <option>DBT skills groups</option>
-          <option>INSET staff training</option>
-          <option>Parent workshops</option>
-          <option>Not sure yet</option>
-        </select>
-      </div>
-      <div class="field">
-        <label for="enq-message">Your message</label>
-        <textarea id="enq-message" name="message" required></textarea>
-      </div>
-      <button type="submit" class="btn">Send enquiry</button>
-    </form>
   </div>
 </section>
 
